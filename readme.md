@@ -3,9 +3,10 @@
 
 Organizando las carpetas.
 
-------------------------------6/10/23----------------------------
+----------------------------------------------------------
+			6/10/23				
 - Al Gant le falta agregar las horas del resto, por el momento estan exageradas las horas de trabajo para que llegue a la fecha.  
-- El conector de cliente servidor no esta en drawio, por el momento se esta usando una imagen.
+- El conector de cliente servidor no esta en drawio, por el momento se esta usando otro conector, se agrego un glosario.
 ------------------------------------------------------------
 
 Tasks:
