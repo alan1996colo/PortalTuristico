@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Turístico</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@200;400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styleVisitante.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul><li><a href="uiVisitanteHome.html"><img  src="../assets/home.svg" alt="Home">Home</a></li>
+                <li><a href="visitanteEventos.html"><img  src="../assets/calendar-event.svg" alt="eventos">Eventos</a></li>
+                <li><a href="visitanteSitios.html"> <img src="../assets/sitios.svg" alt="sitios"> Sitios de interés</a></li>
+                <li><a href="visitanteAsistencia.html"><img src="/assets/apoyo.svg" alt="apoyo"> Asistencia</a></li>
+                <li><a href="visitanteProductos.html"><img src="/assets/productos.svg" alt="productos"> Productos</a></li>
+                <li><a href="visitanteCotizacion.html"><img src="/assets/cotizacion.svg" alt="cotizacion"> Cotización</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+       
+        <section class="eventos">
+            <legend class="label" ><h3>Eventos Recientes</h3>
+            <div id="miCarrusel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col"><figure>
+                                <img src="https://tourism.com.de/wp-content/uploads/2021/11/post-138557-618c0b09399f6.jpg" class="d-block w-100" alt="Imagen 1">
+                                <figcaption>
+                                    <h5>Título de la Imagen 1</h5>
+                                    <p>Descripción de la Imagen 1.</p>
+                                  </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col">
+                                <figure>
+                                <img src="https://pxcom.media/wp-content/uploads/tourisme-sportif-ES.jpg" class="d-block w-100" alt="Imagen 2">
+                                <figcaption>
+                                    <h5>Título de la Imagen 2</h5>
+                                    <p>Descripción de la Imagen 2.</p>
+                                  </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col"><figure>
+                                <img src="https://www.comunicaciontucuman.gob.ar/fotos/cache/notas/2023/05/18/650x440_230518133034_64551.jpeg" class="d-block w-100" alt="Imagen 3">
+                                <figcaption>
+                                    <h5>Título de la Imagen 3</h5>
+                                    <p>Descripción de la Imagen 3.</p>
+                                  </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col">
+                                <figure>
+                                <img src="https://pxcom.media/wp-content/uploads/tourisme-sportif-ES.jpg" class="d-block w-100" alt="Imagen 3">
+                                <figcaption>
+                                    <h5>Título de la Imagen 4</h5>
+                                    <p>Descripción de la Imagen 4.</p>
+                                  </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col"><figure>
+                                <img src="https://pxcom.media/wp-content/uploads/tourisme-sportif-ES.jpg" class="d-block w-100" alt="Imagen 4">
+                                <figcaption>
+                                    <h5>Título de la Imagen 5</h5>
+                                    <p>Descripción de la Imagen 5.</p>
+                                  </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col"><figure>
+                                <img src="https://www.comunicaciontucuman.gob.ar/fotos/cache/notas/2023/05/18/650x440_230518133034_64551.jpeg" class="d-block w-100" alt="Imagen 6">
+                                <figcaption>
+                                    <h5>Título de la Imagen 6</h5>
+                                    <p>Descripción de la Imagen 6.</p>
+                                  </figcaption>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                      <div class="row">
+                          <div class="col"><figure>
+                              <img src="https://pxcom.media/wp-content/uploads/tourisme-sportif-ES.jpg" class="d-block w-100" alt="Imagen 5">
+                              <figcaption>
+                                <h5>Título de la Imagen 7</h5>
+                                <p>Descripción de la Imagen 7.</p>
+                              </figcaption>
+                            </figure>
+                            </div>
+                          <div class="col"><figure>
+                              <img src="https://pxcom.media/wp-content/uploads/tourisme-sportif-ES.jpg" class="d-block w-100" alt="Imagen 6">
+                              <figcaption>
+                                <h5>Título de la Imagen 8</h5>
+                                <p>Descripción de la Imagen 8.</p>
+                              </figcaption>
+                            </figure>
+                            </div>
+                          <div class="col"><figure>
+                              <img src="https://www.comunicaciontucuman.gob.ar/fotos/cache/notas/2023/05/18/650x440_230518133034_64551.jpeg" class="d-block w-100" alt="Imagen 6">
+                              <figcaption>
+                                <h5>Título de la Imagen 9</h5>
+                                <p>Descripción de la Imagen 9.</p>
+                              </figcaption>
+                            </figure>
+                            </div>
+                      </div>
+                  </div>
+                    <!-- Agrega más elementos con 3 imágenes cada uno según sea necesario -->
+                </div>
+                <a class="carousel-control-prev" href="#miCarrusel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#miCarrusel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </a>
+            </div>
+        </legend>
+        </section>
+        <section class="Avisos"><!-- Seccion de avisos-->
+            <legend class="label" ><h3>Productos y servicios destacados</h3></legend>
+            <section class="Productos-tarjetas">
+                <div class="col-izq">
+              
+
+                <div class="card" >
+                    <img src="https://picsum.photos/700/400?random" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">COlumna izquierda</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="visitanteArticuloDetalle.html" class="btn btn-primary">ver mas</a>
+                    </div>
+                  </div><div class="card" >
+                    <img src="https://picsum.photos/700/500?random" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">COlumna izquierda</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">ver mas</a>
+                    </div>
+                  </div><div class="card" >
+                    <img src="https://picsum.photos/400/400?random" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">COlumna izquierda</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">ver mas</a>
+                    </div>
+                </div></div>
+                    <div class="col-mid">                 <div class="card" >
+                    <img src="https://titulae.es/wp-content/uploads/2021/11/grado-superior-peluqueria.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Servicio de peluqueria</h5>
+                      <p class="card-text">llA MEJOR peluqueria de la zona text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">ver mas</a>
+                    </div>
+                  </div><div class="card" >
+                    <img src="https://artistic-a.com/image/cache/catalog/plantillas/ANIMALESNOMBRE1-500x500.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Tazas Ramona</h5>
+                      <p class="card-text">Producto artesanal bla bla d on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">ver mas</a>
+                    </div>
+                  </div><div class="card" >
+                    <img src="https://picsum.photos/200/400?random" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">ver mas</a>
+                    </div>
+                  </div>
+                
+                </div>
+                <div class="col-der">
+
+                  <div class="card" >
+                    <img src="https://artistic-a.com/image/cache/catalog/plantillas/ANIMALESNOMBRE1-500x500.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Tazas Ramona</h5>
+                      <p class="card-text">Producto artesanal bla bla d on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">ver mas</a>
+                    </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://picsum.photos/200/500?random" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Tazas Ramona</h5>
+                      <p class="card-text">Producto artesanal bla bla d on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">ver mas</a>
+                    </div>
+                  </div>
+                  <div class="card" >
+                    <img src="https://picsum.photos/200/300?random" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Columna derecha</h5>
+                      <p class="card-text">Producto artesanal bla bla d on the card title and make up the bulk of the card's content.</p>
+                      <a href="#" class="btn btn-primary">ver mas</a>
+                    </div>
+                  </div>
+                </div>
+            </section>
+        </section>
+
+    </main>
+    <footer>
+    </footer>
+</body>
+</html>
