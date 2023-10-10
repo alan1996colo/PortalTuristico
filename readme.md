@@ -12,10 +12,15 @@ Tasks:
 - [ ] Diagrama de componentes y conectores
 - [x] Agregar los enlaces al drive
 - [ ] Demo, interfaz Grafica.
-	- [ ] Interfaz Visitante.
+	- [x] Interfaz Visitante.
 	- [ ] Interfaz Comerciante.
 	- [ ] Interfaz P.Secretaria.
 	- [ ] Interfaz Supervisor.
+	
+- [ ] Crear bases json de datos ficticios para pasar a la pagina con js
+- [ ] Enlazar los datos con los componentes preferentemente usando ajaxs.
+- [ ] Desarrollar scroll infinito para eventos, sitios de interes y s.de asistencia.
+- [ ] Desarrollar el componente motor de busqueda.
 
 ------------------------------------------------------------
 

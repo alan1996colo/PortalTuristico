@@ -14,8 +14,9 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul><li><a href="uiVisitanteHome.html"><img  src="../assets/home.svg" alt="Home">Home</a></li>
+        <nav class="fixed-nav">
+            <ul>
+              <li><a href="uiVisitanteHome.html"><img  src="../assets/home.svg" alt="Home">Home</a></li>
                 <li><a href="visitanteEventos.html"><img  src="../assets/calendar-event.svg" alt="eventos">Eventos</a></li>
                 <li><a href="visitanteSitios.html"> <img src="../assets/sitios.svg" alt="sitios"> Sitios de interés</a></li>
                 <li><a href="visitanteAsistencia.html"><img src="../assets/apoyo.svg" alt="apoyo"> Asistencia</a></li>
@@ -23,7 +24,19 @@
                 <li><a href="visitanteCotizacion.html"><img src="../assets/cotizacion.svg" alt="cotizacion"> Cotización</a></li>
             </ul>
         </nav>
+
+        <nav ><!--ESPACIO VACIO, esto le da espacio al nav para que no tape otros componentes, no borrar -->
+          <ul>
+            <li><a href=""><img  src="" alt="Home">I</a></li>
+       </ul></nav>
     </header>
+    <main class="cotizador-container">
+        <iframe id="cotizacion" src="https://www.dolarsi.com/func/tool4.php" width="100%" height="1000px" frameborder="1" > </iframe>
     
-</body>
+        <aside><iframe id="monedas" src="https://www.dolarsi.com/func/moduloArriba-n.html" width="110%" height="1000px" style="margin-top: 2%;" frameborder="1"></iframe></aside>  
+   
+        
+       
+
+</main></body>
 </html>
