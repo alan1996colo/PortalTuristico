@@ -1,6 +1,6 @@
 
 :root{
-    font-size: 12px;
+    font-size: 15px;
 }
 *{
     font-family: 'Onest', sans-serif;
@@ -11,6 +11,9 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+nav img{
+  max-width: 2rem;}
 nav ul{
     display: flex;
     text-decoration: none;
@@ -26,6 +29,11 @@ nav li a{
     text-decoration: none;
     color: gray;
     
+}
+
+nav ul li a{
+  display: flex;
+  flex-direction: column;
 }
 nav a:hover{
     border-bottom: solid .2rem rgba(119, 117, 117,0.7);
@@ -81,18 +89,37 @@ nav a:hover{
     }
     #map { height: 180px; }
   
-@media(max-width:400px){
+    .event-pag{
+      display: flex;
+
+    }
+    .mapa{
+      flex-basis: 50%;
+      max-width: 50%;
+      max-height: 100%;
+      flex-direction: column;
+      
+    }
+    #map {
+    height: 50%;}
+
+    .event-container {
+      display: flex;
+    }
+    .lista-eventos{
+      display: flex;
+      flex-direction: column;
+      flex-basis: 50%; /* Agrega esta propiedad para que cada tarjeta ocupe el 50% del ancho */
+      max-width: 50%;
+    }
+@media(max-width:600px){
   :root{
     font-size: 10px;
   }
-  nav ul li a{
-    display: flex;
-    flex-direction: column;
-  }
-  nav img{
-    max-width: 2rem;
-  }
   figcaption {font-size: 0.5rem; /* Tamaño de fuente del texto */}
+  .card img{
+    max-width: 200px;
+  }
 
  
  

@@ -24,9 +24,9 @@
             <ul><li><a href="uiVisitanteHome.html"><img  src="../assets/home.svg" alt="Home">Home</a></li>
                 <li><a href="visitanteEventos.html"><img  src="../assets/calendar-event.svg" alt="eventos">Eventos</a></li>
                 <li><a href="visitanteSitios.html"> <img src="../assets/sitios.svg" alt="sitios"> Sitios de interés</a></li>
-                <li><a href="visitanteAsistencia.html"><img src="/assets/apoyo.svg" alt="apoyo"> Asistencia</a></li>
-                <li><a href="visitanteProductos.html"><img src="/assets/productos.svg" alt="productos"> Productos</a></li>
-                <li><a href="visitanteCotizacion.html"><img src="/assets/cotizacion.svg" alt="cotizacion"> Cotización</a></li>
+                <li><a href="visitanteAsistencia.html"><img src="../assets/apoyo.svg" alt="apoyo"> Asistencia</a></li>
+                <li><a href="visitanteProductos.html"><img src="../assets/productos.svg" alt="productos"> Productos</a></li>
+                <li><a href="visitanteCotizacion.html"><img src="../assets/cotizacion.svg" alt="cotizacion"> Cotización</a></li>
             </ul>
         </nav>
     </header>
@@ -308,29 +308,35 @@
       </div>
     </div>
   </div>
-  <section class="mapa">
-    <div id="map"></div>
-    <script>
-      var map = L.map('map').setView([51.505, -0.09], 13);
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-    </script>
+  <section class="mapa-articulo">
+    <div id="map" style="height: 400px;"></div>
   </section>
+  <script>
+    // Inicializa el mapa Leaflet en el contenedor con el ID "map"
+    var map = L.map('map').setView([-34.52276652978017,-58.70772746597854], 13); // Cambia las coordenadas y el nivel de zoom según tu ubicación deseada
   
-  <footer>
+    // Agrega una capa de mapa base (por ejemplo, Mapbox)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+  
+    // Agrega marcadores u otras capas en el mapa si es necesario
+    var marker = L.marker([51.5, -0.09]).addTo(map);
+  </script>
+  
+  
+
+
+
+
+
+
+
+
+    </main>  <footer>
     <p style="font-size: 8px;">Todos los izquierdos revelados&reg;
 
     </p>
   </footer>
-
-
-
-
-
-
-
-    </main>
 
 </body></html>
