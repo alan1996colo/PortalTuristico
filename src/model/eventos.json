@@ -1,0 +1,100 @@
+[
+    {
+      "Titulo del evento": "Festival de Jazz",
+      "Lugar": "Parque Central",
+      "Horario": "Viernes, 10 de junio a las 18:00",
+      "Entrada": "Gratis",
+      "Descripcion": "Un emocionante festival de jazz con actuaciones en vivo de artistas reconocidos y puestos de comida.",
+      "Ubicacion": {
+        "latitud": 40.7128,
+        "longitud": -74.0060
+      }
+    },
+    {
+      "Titulo del evento": "Exposición de Arte Moderno",
+      "Lugar": "Galería de Arte Contemporáneo",
+      "Horario": "Sábado, 22 de julio a las 15:00",
+      "Entrada": "$10 por persona",
+      "Descripcion": "Explora las últimas obras de arte moderno de talentosos artistas locales y nacionales.",
+      "Ubicacion": {
+        "latitud": 34.0522,
+        "longitud": -118.2437
+      }
+    },
+    {
+      "Titulo del evento": "Carrera Benéfica",
+      "Lugar": "Parque Riverside",
+      "Horario": "Domingo, 5 de agosto a las 09:00",
+      "Entrada": "Donación sugerida de $20",
+      "Descripcion": "Participa en una carrera benéfica para apoyar a una causa importante.",
+      "Ubicacion": {
+        "latitud": 37.7749,
+        "longitud": -122.4194
+      }
+    },
+    {
+      "Titulo del evento": "Fiesta de la Playa",
+      "Lugar": "Playa Sunshine",
+      "Horario": "Sábado, 30 de julio a las 14:00",
+      "Entrada": "Entrada gratuita, actividades con costo adicional",
+      "Descripcion": "Disfruta de un día soleado en la playa con música, deportes acuáticos y comida deliciosa.",
+      "Ubicacion": {
+        "latitud": 33.6844,
+        "longitud": -118.1548
+      }
+    },
+    {
+      "Titulo del evento": "Feria de la Ciencia",
+      "Lugar": "Centro de Convenciones",
+      "Horario": "Sábado, 12 de septiembre a las 10:00",
+      "Entrada": "$5 por adulto, gratis para niños menores de 12 años",
+      "Descripcion": "Explora la magia de la ciencia con exhibiciones interactivas y experimentos emocionantes.",
+      "Ubicacion": {
+        "latitud": 41.8781,
+        "longitud": -87.6298
+      }
+    },
+    {
+      "Titulo del evento": "Noche de Comedia en Vivo",
+      "Lugar": "Club de Comedia Laugh-Out-Loud",
+      "Horario": "Viernes, 19 de agosto a las 20:00",
+      "Entrada": "$15 por persona, mayores de 18 años",
+      "Descripcion": "Ríete a carcajadas con las actuaciones de comediantes talentosos en vivo.",
+      "Ubicacion": {
+        "latitud": 34.0522,
+        "longitud": -118.2437
+      }
+    },
+    {
+      "Titulo del evento": "Festival de Food Trucks",
+      "Lugar": "Plaza de la Ciudad",
+      "Horario": "Sábado, 3 de septiembre a las 17:00",
+      "Entrada": "Gratis, comida disponible para su compra",
+      "Descripcion": "Prueba una variedad de platos deliciosos de food trucks locales y disfruta de música en vivo.",
+      "Ubicacion": {
+        "latitud": 40.7128,
+        "longitud": -74.0060
+      }
+    },
+    {
+      "Titulo del evento": "Exposición de Flores y Jardines",
+      "Lugar": "Jardines Botánicos",
+      "Horario": "Domingo, 28 de agosto a las 10:00",
+      "Entrada": "$12 por adulto, gratis para niños",
+      "Descripcion": "Admira la belleza de las flores y jardines en esta exposición anual.",
+      "Ubicacion": {
+        "latitud": 37.7749,
+        "longitud": -122.4194
+      }
+    },
+    {
+      "Titulo del evento": "Concierto al Aire Libre",
+      "Lugar": "Parque de la Ciudad",
+      "Horario": "Sábado, 17 de julio a las 19:30",
+      "Entrada": "Entrada gratuita, donaciones bienvenidas",
+      "Descripcion": "Disfruta de una velada musical bajo las estrellas con artistas locales.",
+      "Ubicacion": {
+        "latitud": 33.6844,
+        "longitud": -118.1548
+      }
+    }]  

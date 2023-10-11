@@ -1,48 +1,46 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Publicar nuevo articulo</title>
+    <title>Publicar nuevo artículo</title>
+    <script src="../controller/gestorArticulosyservicios.js"></script>
 </head>
 <body>
 
-
-       <form id="logger">
-            <label for="fname">Titulo del articulo:</label><br>
-            <input type="text" id="fname" name="fname" value="title">
-            <label for="tipo">Elija tipo</label>
-            <select id="tipo" name="tipo" size="1"> <!--al poner size cambia de tamaño de los visibles-->
-                <option value="Servicio">Servicio</option>
-                <option value="Producto">Producto</option>
-            </select>
-            <br>
-            <label for="myfile">Suba una foto de su articulo:</label><br>
-            <input type="file" id="myfile" name="myfile"><br>
+    <form id="publisher">
+        <label for="fname">Titulo del artículo:</label><br>
+        <input type="text" id="fname" name="fname">
+        <label for="tipo">Elija tipo</label>
+        <select id="tipo" name="tipo" size="1">
+            <option value="Servicio">Servicio</option>
+            <option value="Producto">Producto</option>
+        </select>
         <br>
-        <textarea name="message" style="width:200px; height:100px;">Ingrese la descripcion de su articulo           </textarea>
+        <label for="myfile">Suba una foto de su artículo:</label><br>
+        <input type="file" id="myfile" name="myfile"><br>
+        <br>
+        <textarea name="message" style="width:200px; height:100px;">Ingrese la descripción de su artículo</textarea>
         <p id="mensaje"></p>
-        <label for="price">Si lo desea ingrese un precio</label>
-        <input type="number" id="price" name="price" >
+        <label for="price">Si lo desea, ingrese un precio</label>
+        <input type="number" id="price" name="price">
 
         <fieldset>
-        <legend>Existe alguna restriccion?</legend>
-        <input type="checkbox" id="niños" name="niños" value="niños">
-        <label for="niños"> No Niños</label><br>
-        <input type="checkbox" id="adultos" name="adultos" value="adultos">
-        <label for="adultos"> +18</label><br>
-        <input type="checkbox" id="movilidad" name="movilidad" value="movilidad">
-        <label for="movilidad"> sin movilidad, solo en el local</label><br>
-        <label for="rOtro">Otro:</label><br>
-        <input type="text" id="rOtro" name="rOtro" value="Completar">
-
-    </fieldset>
+            <legend>Existe alguna restricción?</legend>
+            <input type="checkbox" id="niños" name="niños" value="niños">
+            <label for="niños"> No Niños</label><br>
+            <input type="checkbox" id="adultos" name="adultos" value="adultos">
+            <label for "adultos"> +18</label><br>
+            <input type="checkbox" id="movilidad" name="movilidad" value="movilidad">
+            <label for="movilidad"> Sin movilidad, solo en el local</label><br>
+            <label for="rOtro">Otro:</label><br>
+            <input type="text" id="rOtro" name="rOtro" value="Completar">
+        </fieldset>
         <br>
 
-
-        <input type="submit"  value="Submit" onclick="alert('se ha cargado el formulario correctamente.')">
+        <input type="submit" value="Submit" onclick="agregarDatosAlJSON()">
     </form>
-    
+
+
 </body>
 </html>

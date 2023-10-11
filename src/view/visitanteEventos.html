@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eventos</title>
+  <script src="../controller/gestorEventosLector.js"></script>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -22,90 +23,104 @@
 
 </head>
 
-<body>
+<body onload="cargarEvento()">
+
   <header>
     <nav class="fixed-nav">
-        <ul>
-          <li><a href="uiVisitanteHome.html"><img  src="../assets/home.svg" alt="Home">Home</a></li>
-            <li><a href="visitanteEventos.html"><img  src="../assets/calendar-event.svg" alt="eventos">Eventos</a></li>
-            <li><a href="visitanteSitios.html"> <img src="../assets/sitios.svg" alt="sitios"> Sitios de interés</a></li>
-            <li><a href="visitanteAsistencia.html"><img src="../assets/apoyo.svg" alt="apoyo"> Asistencia</a></li>
-            <li><a href="visitanteProductos.html"><img src="../assets/productos.svg" alt="productos"> Productos</a></li>
-            <li><a href="visitanteCotizacion.html"><img src="../assets/cotizacion.svg" alt="cotizacion"> Cotización</a></li>
-        </ul>
+      <ul>
+        <li><a href="uiVisitanteHome.html"><img src="../assets/home.svg" alt="Home">Home</a></li>
+        <li><a href="visitanteEventos.html"><img src="../assets/calendar-event.svg" alt="eventos">Eventos</a></li>
+        <li><a href="visitanteSitios.html"> <img src="../assets/sitios.svg" alt="sitios"> Sitios de interés</a></li>
+        <li><a href="visitanteAsistencia.html"><img src="../assets/apoyo.svg" alt="apoyo"> Asistencia</a></li>
+        <li><a href="visitanteProductos.html"><img src="../assets/productos.svg" alt="productos"> Productos</a></li>
+        <li><a href="visitanteCotizacion.html"><img src="../assets/cotizacion.svg" alt="cotizacion"> Cotización</a></li>
+      </ul>
     </nav>
 
-    <nav ><!--ESPACIO VACIO, esto le da espacio al nav para que no tape otros componentes, no borrar -->
+    <nav><!--ESPACIO VACIO, esto le da espacio al nav para que no tape otros componentes, no borrar -->
       <ul>
-        <li><a href=""><img  src="" alt="Home">I</a></li>
-   </ul></nav>
-</header>
+        <li><a href=""><img src="" alt="Home">I</a></li>
+      </ul>
+    </nav>
+  </header>
   <main class="event-pag">
     <div class="event-container">
       <section class="lista-eventos">
-        <div class="card d-flex flex-row-reverse card-event">
+        <article class="card d-flex flex-row-reverse card-event">
           <img class="imglista" src="https://picsum.photos/600/400?random" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4 class="card-title">Titulo del evento</h4>
-            <h6 class="evento-lugar">Lugar:</h6>
-            <h6 class="evento-horario">Horario:</h6>
-            <h6 class="evento-entrada">Entrada:</h6>
-            <p class="card-text evento-descripcion">Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Temporibus porro, enim autem dolores quaerat atque consequatur fugit eaque asperiores ipsum
-              exercitationem ea, nihil maxime alias nam accusantium deleniti et possimus!</p>
+          <div class="card-body" id="evento-1">
+            <h4 class="card-title"><span class="titulo"></span></h4>
+            <p class="evento-lugar"><strong>Lugar:</strong><span class="lugar"></span></p>
+            <p class="evento-horario"><strong>Horario:</strong><span class="horario"></span></p>
+            <p class="evento-entrada"><strong>Entrada:</strong><span class="entrada"></span></p>
+            <p class="card-text evento-descripcion"><span class="descripcion">a</span></p>
             <a href="https://www.google.com/maps?q=-34.52276652978017,-58.70772746597854" class="btn btn-primary"
               target="_blank">Como llegar</a>
 
           </div>
-        </div>
-        <div class="card d-flex flex-row-reverse card-event">
-          <img class="imglista" src="https://picsum.photos/700/400?random" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4 class="card-title">Titulo del evento</h4>
-            <h6 class="evento-lugar">Lugar:</h6>
-            <h6 class="evento-horario">Horario:</h6>
-            <h6 class="evento-entrada">Entrada:</h6>
-            <p class="card-text evento-descripcion">Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Temporibus porro, enim autem dolores quaerat atque consequatur fugit eaque asperiores ipsum
-              exercitationem ea, nihil maxime alias nam accusantium deleniti et possimus!</p>
+        </article>
+
+        <article class="card d-flex flex-row-reverse card-event">
+          <img class="imglista" src="https://picsum.photos/600/400?random" class="card-img-top" alt="...">
+          <div class="card-body" id="evento-2">
+            <h4 class="card-title"><span class="titulo"></span></h4>
+            <p class="evento-lugar"><strong>Lugar:</strong><span class="lugar"></span></p>
+            <p class="evento-horario"><strong>Horario:</strong><span class="horario"></span></p>
+            <p class="evento-entrada"><strong>Entrada:</strong><span class="entrada"></span></p>
+            <p class="card-text evento-descripcion"><span class="descripcion">a</span></p>
             <a href="https://www.google.com/maps?q=-34.52276652978017,-58.70772746597854" class="btn btn-primary"
               target="_blank">Como llegar</a>
 
           </div>
-        </div>
-        <div class="card d-flex flex-row-reverse card-event">
-          <img class="imglista" src="https://picsum.photos/400/400?random" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4 class="card-title">Titulo del evento</h4>
-            <h6 class="evento-lugar">Lugar:</h6>
-            <h6 class="evento-horario">Horario:</h6>
-            <h6 class="evento-entrada">Entrada:</h6>
-            <p class="card-text evento-descripcion">Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Temporibus porro, enim autem dolores quaerat atque consequatur fugit eaque asperiores ipsum
-              exercitationem ea, nihil maxime alias nam accusantium deleniti et possimus!</p>
+        </article>
+
+        <article class="card d-flex flex-row-reverse card-event">
+          <img class="imglista" src="https://picsum.photos/600/400?random" class="card-img-top" alt="...">
+          <div class="card-body" id="evento-3">
+            <h4 class="card-title"><span class="titulo"></span></h4>
+            <p class="evento-lugar"><strong>Lugar:</strong><span class="lugar"></span></p>
+            <p class="evento-horario"><strong>Horario:</strong><span class="horario"></span></p>
+            <p class="evento-entrada"><strong>Entrada:</strong><span class="entrada"></span></p>
+            <p class="card-text evento-descripcion"><span class="descripcion">a</span></p>
             <a href="https://www.google.com/maps?q=-34.52276652978017,-58.70772746597854" class="btn btn-primary"
               target="_blank">Como llegar</a>
 
           </div>
-        </div>
-        <div class="card d-flex flex-row-reverse card-event">
-          <img class="imglista" src="https://picsum.photos/700/500?random" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h4 class="card-title">Titulo del evento</h4>
-            <h6 class="evento-lugar">Lugar:</h6>
-            <h6 class="evento-horario">Horario:</h6>
-            <h6 class="evento-entrada">Entrada:</h6>
-            <p class="card-text evento-descripcion">Descripcion: Lorem ipsum dolor sit amet consectetur adipisicing
-              elit. Temporibus porro, enim autem dolores quaerat atque consequatur fugit eaque asperiores ipsum
-              exercitationem ea, nihil maxime alias nam accusantium deleniti et possimus!</p>
+        </article>
+
+        <article class="card d-flex flex-row-reverse card-event">
+          <img class="imglista" src="https://picsum.photos/600/400?random" class="card-img-top" alt="...">
+          <div class="card-body" id="evento-4">
+            <h4 class="card-title"><span class="titulo"></span></h4>
+            <p class="evento-lugar"><strong>Lugar:</strong><span class="lugar"></span></p>
+            <p class="evento-horario"><strong>Horario:</strong><span class="horario"></span></p>
+            <p class="evento-entrada"><strong>Entrada:</strong><span class="entrada"></span></p>
+            <p class="card-text evento-descripcion"><span class="descripcion">a</span></p>
             <a href="https://www.google.com/maps?q=-34.52276652978017,-58.70772746597854" class="btn btn-primary"
               target="_blank">Como llegar</a>
 
           </div>
-        </div>
+        </article>
+
+        <article class="card d-flex flex-row-reverse card-event">
+          <img class="imglista" src="https://picsum.photos/600/400?random" class="card-img-top" alt="...">
+          <div class="card-body" id="evento-5">
+            <h4 class="card-title"><span class="titulo"></span></h4>
+            <p class="evento-lugar"><strong>Lugar:</strong><span class="lugar"></span></p>
+            <p class="evento-horario"><strong>Horario:</strong><span class="horario"></span></p>
+            <p class="evento-entrada"><strong>Entrada:</strong><span class="entrada"></span></p>
+            <p class="card-text evento-descripcion"><span class="descripcion">a</span></p>
+            <a href="https://www.google.com/maps?q=-34.52276652978017,-58.70772746597854" class="btn btn-primary"
+              target="_blank">Como llegar</a>
+
+          </div>
+        </article>
+
       </section>
 
-      <iframe src="https://calendar.google.com/calendar/embed?src=es.ar%23holiday%40group.v.calendar.google.com&ctz=America%2FArgentina%2FBuenos_Aires" style="border: 0" width="48%" height="48%" frameborder="0" scrolling="no"></iframe>
+      <iframe
+        src="https://calendar.google.com/calendar/embed?src=es.ar%23holiday%40group.v.calendar.google.com&ctz=America%2FArgentina%2FBuenos_Aires"
+        style="border: 0" width="48%" height="48%" frameborder="0" scrolling="no"></iframe>
 
 
     </div>
