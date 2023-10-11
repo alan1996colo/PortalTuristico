@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uiSupervisorRegistrarMiembro</title>
+    <!--Carga de Bootstrap’s CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container mt-4">
+
+        <!--Titulo principal-->
+        <h1>Interfaz Supervisor</h1>
+        <!--Linea divisoria-->
+        <hr>
+        <!--Titulo secundario-->
+        <h3 class="mt-4">Registrar miembro</h3>
+
+        <!--Seleccion tipo miembro-->
+        <div class="group mt-3">
+            <label for="seleccionMiembro">Seleccione una opcion:</label>
+            <select class="form-control" id="seleccionMiembro">
+                <option disabled selected></option>
+                <option value="opcionComerciante">Comerciante</option>
+                <option value="opcionPersonalSecretaria">Personal de secretaria</option>
+            </select>
+        </div>
+
+        <!--Datos a completar segun miembro-->
+        <!-- COMERCIANTE -->
+        <div id="contenidoOpcionComerciante" style="display: none;">
+            <!--Input nombre-->
+            <div class="form-field mt-3">
+                <label for="nombreComerciante" class="label">Nombre</label>
+                <input id="nombreComerciante" placeholder="Ingresar nombre" type="text" class="form-control mt-1">
+            </div>
+            <!--Input apellido-->
+            <div class="form-field mt-3">
+                <label for="apellidoComerciante" class="label">Apellido</label>
+                <input id="apellidoComerciante" placeholder="Ingresar apellido" type="text" class="form-control mt-1">
+            </div>
+            <!--Input dni-->
+            <div class="form-field mt-3">
+                <label for="dniComerciante" class="label">DNI</label>
+                <input id="dniComerciante" placeholder="Ingresar DNI" type="text" class="form-control mt-1">
+            </div>
+
+            <!--Titulo secundario-->
+            <h3 class="mt-4">Datos del comercio</h3>
+
+            <!--Input comercio-->
+            <div class="form-field mt-3">
+                <label for="NombreComercio" class="label">Nombre</label>
+                <input id="NombreComercio" placeholder="Ingresar nombre del comercio" type="text"
+                    class="form-control mt-1">
+            </div>
+            <div class="form-field mt-3">
+                <label for="direccionComercio" class="label">Direccion</label>
+                <input id="direccionComercio" placeholder="Ingresar direccion del comercio" type="text"
+                    class="form-control mt-1">
+            </div>
+            <div class="form-field mt-3">
+                <label for="telComercio" class="label">Telefono</label>
+                <input id="telComercio" placeholder="Ingresar numero de telefono del comercio" type="text"
+                    class="form-control mt-1">
+            </div>
+            <div class="form-field mt-3">
+                <label for="descripcionComercio" class="label">Descripcion</label>
+                <input id="descripcionComercio" placeholder="Ingresar una breve descripcion del comercio" type="text"
+                    class="form-control mt-1">
+            </div>
+
+
+           
+            <!-- Campo de carga de archivos para la foto -->
+            <form enctype="multipart/form-data"></form>
+            <div class="mt-4">
+                <label for="foto" class="form-label">Cargar foto del comercio</label>
+                <input type="file" class="form-control" id="foto" name="foto">
+            </div>
+            </form>
+
+
+            <!--Titulo secundario-->
+            <h6 class="mt-4">Categorias (elija una o mas segun el tipo de comercio)</h6>
+
+            <!--Radio buttons-->
+            <form>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria1" name="opciones[]"
+                        value="categoria1">
+                    <label class="form-check-label" for="categoria1">
+                        Alimentos y Bebidas
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria2" name="opciones[]"
+                        value="categoria2">
+                    <label class="form-check-label" for="categoria2">
+                        Moda y Ropa
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria3" name="opciones[]"
+                        value="categoria3">
+                    <label class="form-check-label" for="categoria3">
+                        Electrónica y Tecnología
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria4" name="opciones[]"
+                        value="categoria4">
+                    <label class="form-check-label" for="categoria4">
+                        Deportes y Entretenimiento
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria5" name="opciones[]"
+                        value="categoria5">
+                    <label class="form-check-label" for="categoria5">
+                        Arte y Cultura
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria6" name="opciones[]"
+                        value="categoria6">
+                    <label class="form-check-label" for="categoria6">
+                        Salud y Belleza
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria7" name="opciones[]"
+                        value="categoria7">
+                    <label class="form-check-label" for="categoria7">
+                        Arte y Cultura
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria8" name="opciones[]"
+                        value="categoria8">
+                    <label class="form-check-label" for="categoria8">
+                        Hogar y Decoración
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="categoria9" name="opciones[]"
+                        value="categoria9">
+                    <label class="form-check-label" for="categoria9">
+                        Mascotas
+                    </label>
+                </div>
+
+            </form>
+
+            
+
+            <!--Boton registrar-->
+            <div class="d-grid mt-3">
+                <a class="btn btn-outline-dark" href="#" role="button">Registrar</a>
+            </div>
+
+            <!--Boton cancelar-->
+            <div class="d-grid mt-3">
+                <a class="btn btn-outline-dark" href="uiSupervisor.html" role="button">Cancelar</a>
+            </div>
+        </div>
+
+        <!-- PERSONAL DE SECRETARIA -->
+        <div id="contenidoOpcionPersonalSecretaria" style="display: none;">
+            <!--Input nombre-->
+            <div class="form-field mt-3">
+                <label for="nombrePersonalSecretaria" class="label">Nombre</label>
+                <input id="nombrePersonalSecretaria" placeholder="Ingresar nombre" type="text"
+                    class="form-control mt-1">
+            </div>
+            <!--Input apellido-->
+            <div class="form-field mt-3">
+                <label for="apellidoPersonalSecretaria" class="label">Apellido</label>
+                <input id="apellidoPersonalSecretaria" placeholder="Ingresar apellido" type="text"
+                    class="form-control mt-1">
+            </div>
+            <!--Input dni-->
+            <div class="form-field mt-3">
+                <label for="dniPersonalSecretaria" class="label">DNI</label>
+                <input id="dniPersonalSecretaria" placeholder="Ingresar DNI" type="text" class="form-control mt-1">
+            </div>
+
+
+            <!--Titulo secundario-->
+            <h4 class="mt-4">Permisos</h4>
+
+            <!--Radio buttons-->
+            <form>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="opcion1" name="opciones[]" value="opcion1">
+                    <label class="form-check-label" for="opcion1">
+                        Opción 1
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="opcion2" name="opciones[]" value="opcion2">
+                    <label class="form-check-label" for="opcion2">
+                        Opción 2
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="opcion3" name="opciones[]" value="opcion3">
+                    <label class="form-check-label" for="opcion3">
+                        Opción 3
+                    </label>
+                </div>
+            </form>
+
+            <!--Boton cargar-->
+            <div class="d-grid mt-3">
+                <a class="btn btn-outline-dark" href="#" role="button">Registrar</a>
+            </div>
+
+            <!--Boton cancelar-->
+            <div class="d-grid mt-3">
+                <a class="btn btn-outline-dark" href="uiSupervisor.html" role="button">Cancelar</a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!--Carga de Bootstrap’s JavaScript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // Obtén el elemento select y los elementos de contenido adicional
+        const select = document.getElementById("seleccionMiembro");
+        const contenidoOpcionComerciante = document.getElementById("contenidoOpcionComerciante");
+        const contenidoOpcionPersonalSecretaria = document.getElementById("contenidoOpcionPersonalSecretaria");
+
+        // Agrega un evento change al combobox
+        select.addEventListener("change", function () {
+            // Oculta todos los elementos de contenido adicional
+            contenidoOpcionComerciante.style.display = "none";
+            contenidoOpcionPersonalSecretaria.style.display = "none";
+
+            // Muestra el contenido correspondiente a la opción seleccionada
+            const opcionSeleccionada = select.value;
+            if (opcionSeleccionada === "opcionComerciante") {
+                contenidoOpcionComerciante.style.display = "block";
+            } else if (opcionSeleccionada === "opcionPersonalSecretaria") {
+                contenidoOpcionPersonalSecretaria.style.display = "block";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
