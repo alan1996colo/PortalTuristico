@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificar articulo</title>
+</head>
+<body>
+
+
+       <form id="logger">
+            <label for="fname">Cambiar Titulo del articulo:</label><br>
+            <input type="text" id="fname" name="fname" value="title">
+            <label for="tipo">Modificar tipo</label>
+            <select id="tipo" name="tipo" size="1"> <!--al poner size cambia de tamaño de los visibles-->
+                <option value="Servicio">Servicio</option>
+                <option value="Producto">Producto</option>
+            </select>
+            <br>
+            <label for="myfile">reemplazar foto de su articulo:</label><br>
+            <input type="file" id="myfile" name="myfile"><br>
+        <br>
+        <textarea name="message" style="width:200px; height:100px;">modificar descripcion de su articulo           </textarea>
+        <p id="mensaje"></p>
+        <label for="price">Modificar precio</label>
+        <input type="number" id="price" name="price" >
+
+        <fieldset>
+        <legend>Existe alguna restriccion?</legend>
+        <input type="checkbox" id="niños" name="niños" value="niños">
+        <label for="niños"> No Niños</label><br>
+        <input type="checkbox" id="adultos" name="adultos" value="adultos">
+        <label for="adultos"> +18</label><br>
+        <input type="checkbox" id="movilidad" name="movilidad" value="movilidad">
+        <label for="movilidad"> sin movilidad, solo en el local</label><br>
+        <label for="rOtro">Otro:</label><br>
+        <input type="text" id="rOtro" name="rOtro" value="Completar">
+
+    </fieldset>
+        <br> <script>
+            function redirigirComerciante( valor) {
+                var confirmacion = confirm("¿Está seguro que desea continuar?");
+                if (confirmacion) {
+                window.location.href = "uiComerciante.html";
+                if(valor=='Eliminar este articulo'){
+                alert('se ha Eliminado el articulo permanentemente');
+                
+            }
+            else{
+                alert('Se ha cargado el formulario')
+            }
+        }}
+
+
+        </script>
+
+
+        <input type="submit"  value="Actualizar" onclick=" redirigirComerciante('Actualizar');">
+       
+        <input type="submit"  value="Eliminar este articulo" onclick=" redirigirComerciante('Eliminar este articulo');">
+    </form>
+    
+</body>
+</html>

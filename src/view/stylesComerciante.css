@@ -1,0 +1,38 @@
+.card{
+    max-width: 800px;
+    max-height: 300px;
+    /*overflow: hidden;*/
+}
+.card-h{
+   display: flex;
+   justify-content:space-between;
+}
+.card-body p{
+    margin: 0;
+    font-weight: 600;
+    
+}
+.card-body span{
+
+font-weight: normal;}
+
+.card-body{
+    overflow: hidden;
+
+}
+.estado{
+    display: inline;
+}
+.card img{
+    max-width: 300px;
+    max-height: auto;
+}
+.precio{
+    display: flex;
+    background-color: rgb(71, 175, 111);
+    text-shadow:1px 1px 1px gray;
+    border-radius: 7%;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
