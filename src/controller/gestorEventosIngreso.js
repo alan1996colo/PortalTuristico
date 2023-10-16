@@ -20,14 +20,8 @@ function agregarEvento(){
         horario: document.getElementById("horario").value,
         descripcion: document.getElementById("descripcion").value
     };
-
+    
     eventos.push(evento);
-
-    // Vaciamos los campos del formulario
-    document.getElementById("nombre").value = "";
-    document.getElementById("lugar").value = "";
-    document.getElementById("horario").value = "";
-    document.getElementById("descripcion").value = "";
 }
 
 function descargarEventos() {
