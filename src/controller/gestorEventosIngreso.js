@@ -4,7 +4,7 @@ var eventos = [];
 function cargarEventos() {
     // Se cargan eventos previamente cargados
     // Intentamos cargar el archivo JSON existente (si existe)
-    fetch('../model/registroEventos.json')
+    fetch("../model/registroEventos.json")
         .then(response => response.json())
         .then(data => {
             eventos = data;
