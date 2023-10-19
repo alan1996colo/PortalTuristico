@@ -1,10 +1,12 @@
 
 function agregarDatosAlJSON() {
     const formData = {
+        categoria: document.getElementById("categoria").value,
         title: document.getElementById("fname").value,
         tipo: document.getElementById("tipo").value,
         descripcion: document.querySelector('textarea[name="message"]').value,
-        precio: document.getElementById("price").value,
+        precio: document.getElementById("precio").value,
+        imagen: document.getElementById("myPic").value,
         restricciones: {
             niños: document.getElementById("niños").checked,
             adultos: document.getElementById("adultos").checked,

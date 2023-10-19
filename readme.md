@@ -20,4 +20,11 @@ Enlaces utiles:
 - [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/): *proporciona componentes y estilos predefinidos para crear sitios web y aplicaciones web responsivas de manera rápida*.
 
 ------------------------------------------------------------
+		19/10/23
+		
+La persistencia de archivos maneniendo los datos previos solo funciona montando algun servidor , porque se supone que el navegador no deberia poder tener acceso a tus archivos sin tu consentimiento.
+Para resolver esto estamos usando la extension de VisualStudio LiveServer.
+Se puede instalar facilmente desde el IDE, o consultar el repo de los desarrolladores.
+
+[LiveServer](https://github.com/ritwickdey/vscode-live-server-plus-plus)
 

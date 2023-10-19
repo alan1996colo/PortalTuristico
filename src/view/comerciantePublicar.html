@@ -1,46 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicar nuevo artículo</title>
+    <link rel="stylesheet" href="stylesComerciante.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@200;400;800&display=swap" rel="stylesheet">
+
     <script src="../controller/gestorArticulosyservicios.js"></script>
+    <script src="appcomerciante.js"></script>
+    <script src="comerciante.js"></script>
 </head>
-<body>
 
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <nav><a href="uiComerciante.html">Mis publicaciones</a>
+    </nav>
+    <h1> Publicar un nuevo articulo o servicio.</h1>
     <form id="publisher">
-        <label for="fname">Titulo del artículo:</label><br>
-        <input type="text" id="fname" name="fname">
-        <label for="tipo">Elija tipo</label>
-        <select id="tipo" name="tipo" size="1">
-            <option value="Servicio">Servicio</option>
-            <option value="Producto">Producto</option>
-        </select>
-        <br>
-        <label for="myfile">Suba una foto de su artículo:</label><br>
-        <input type="file" id="myfile" name="myfile"><br>
-        <br>
-        <textarea name="message" style="width:200px; height:100px;">Ingrese la descripción de su artículo</textarea>
-        <p id="mensaje"></p>
-        <label for="price">Si lo desea, ingrese un precio</label>
-        <input type="number" id="price" name="price">
+        <div class="publi" id="step-1">
+            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg" title="cancelar"></a></div>
+            <h2>Seleccione una categoria</h2>
+            <!-- Primer conjunto de campos de formulario -->
+            <select id="categoria" name="categoria">
+                <option value="Electrónica, Audio y Video">Electrónica, Audio y Video</option>
+                <option value="Moda y Belleza">Moda y Belleza</option>
+                <option value="Hogar, Muebles y Jardín">Hogar, Muebles y Jardín</option>
+                <option value="Deportes y Fitness">Deportes y Fitness</option>
+                <option value="Autos, Motos y Otros">Autos, Motos y Otros</option>
+                <option value="Bebés">Bebés</option>
+                <option value="Juguetes y Hobbies">Juguetes y Hobbies</option>
+                <option value="Electrodomésticos y Aires Ac">Electrodomésticos y Aires Ac</option>
+                <option value="Salud y Equipamiento Médico">Salud y Equipamiento Médico</option>
+                <option value="Libros, Revistas y Comics">Libros, Revistas y Comics</option>
+                <option value="Música, Películas y Series">Música, Películas y Series</option>
+                <option value="Arte y Antigüedades">Arte y Antigüedades</option>
+                <option value="Mascotas">Mascotas</option>
+                <option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
+                <option value="Electrónica y Electricidad">Electrónica y Electricidad</option>
+                <option value="Construcción">Construcción</option>
+                <option value="Otros">Construcción</option>
+            </select>
+            <button id="next-1"
+                onclick="mostrarElemento('sugerencia');mostrarElemento('step-2');ocultarElemento('step-1'); event.preventDefault();">Siguiente</button>
+        </div>
 
-        <fieldset>
-            <legend>Existe alguna restricción?</legend>
-            <input type="checkbox" id="niños" name="niños" value="niños">
-            <label for="niños"> No Niños</label><br>
-            <input type="checkbox" id="adultos" name="adultos" value="adultos">
-            <label for "adultos"> +18</label><br>
-            <input type="checkbox" id="movilidad" name="movilidad" value="movilidad">
-            <label for="movilidad"> Sin movilidad, solo en el local</label><br>
-            <label for="rOtro">Otro:</label><br>
-            <input type="text" id="rOtro" name="rOtro" value="Completar">
-        </fieldset>
-        <br>
 
-        <input type="submit" value="Submit" onclick="agregarDatosAlJSON()">
+        <div class="publi" id="step-2">
+            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg" title="cancelar"></a></div>
+
+            <h2>Ingrese un nombre para su articulo</h2>
+
+            <label for="fname">Titulo del artículo:</label><br>
+            <input type="text" id="fname" name="fname">
+            <label for="tipo">Elija tipo</label>
+            <select id="tipo" name="tipo" size="1">
+                <option value="Servicio">Servicio</option>
+                <option value="Producto">Producto</option>
+            </select>
+            <div> <button id="prev-1"
+                    onclick="ocultarElemento('sugerencia');mostrarElemento('step-1');ocultarElemento('step-2'); event.preventDefault();">Atras</button>
+
+                <button id="next-2"
+                    onclick=";mostrarElemento('step-3');ocultarElemento('step-2'); event.preventDefault();">Siguiente</button>
+            </div>
+
+        </div>
+
+        <div class="publi" id="step-3">
+            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg" title="cancelar"></a></div>
+
+            <br>
+            <label for="myPic">Suba una foto de su artículo:(ingrese un enlace a la imagen)</label><br>
+            <input type="url" id="myPic" name="myPic"><br>
+            <br>
+            <textarea name="message" style="width:200px; height:100px;">Ingrese la descripción de su artículo</textarea>
+            <p id="mensaje"></p>
+            <label for="precio">Si lo desea, ingrese un precio</label>
+            <input type="number" id="precio" name="precio">
+
+            <fieldset>
+                <legend>Existe alguna restricción?</legend>
+                <input type="checkbox" id="niños" name="niños" value="niños">
+                <label for="niños"> No Niños</label><br>
+                <input type="checkbox" id="adultos" name="adultos" value="adultos">
+                <label for "adultos"> +18</label><br>
+                <input type="checkbox" id="movilidad" name="movilidad" value="movilidad">
+                <label for="movilidad"> Sin movilidad, solo en el local</label><br>
+                <label for="rOtro">Otro:</label><br>
+                <input type="text" id="rOtro" name="rOtro" value="Completar">
+            </fieldset>
+            <br>
+            <div>
+                <button id="prev-2"
+                    onclick="mostrarElemento('step-2');ocultarElemento('step-3'); event.preventDefault();">Atras</button>
+                <input type="submit" value="Publicar" onclick="agregarDatosAlJSON();event.preventDefault();">
+            </div>
+        </div>
+
+        <div>
+            <p id="sugerencia">Buscando articulos sugeridos...</p>
+        </div>
     </form>
 
 
 </body>
+
 </html>

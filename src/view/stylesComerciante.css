@@ -1,36 +1,88 @@
-.card{
+#step-3,
+#step-2,
+#sugerencia {
+    display: none;
+}
+
+#publisher {
+    display: flex;
+}
+
+* {
+    font-family: 'Onest', sans-serif;
+}
+
+nav a {
+    background-color: chocolate;
+    text-decoration: none;
+    color: whitesmoke;
+    border-radius: 15%;
+}
+
+nav a:hover {
+    background-color: rgb(219, 123, 54);
+    border: solid gray 1px;
+    font-size: large;
+
+}
+
+.publi {
+    gap: 2px;
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 10px;
+    border: solid 2px rgb(122, 115, 115);
+    border-radius: 2%;
+}
+.imagen{
+    margin-left: auto;
+}
+
+.card {
     max-width: 800px;
     max-height: 300px;
     /*overflow: hidden;*/
 }
-.card-h{
-   display: flex;
-   justify-content:space-between;
+
+.card-h {
+    display: flex;
+    justify-content: space-between;
 }
-.card-body p{
+
+.card-body p {
     margin: 0;
     font-weight: 600;
-    
+
 }
-.card-body span{
 
-font-weight: normal;}
+.card-body span {
 
-.card-body{
+    font-weight: normal;
+}
+
+.card-body {
     overflow: hidden;
 
 }
-.estado{
+
+.estado {
     display: inline;
 }
-.card img{
+
+.card img {
     max-width: 300px;
     max-height: auto;
 }
-.precio{
+
+.precio {
     display: flex;
     background-color: rgb(71, 175, 111);
-    text-shadow:1px 1px 1px gray;
+    text-shadow: 1px 1px 1px gray;
     border-radius: 7%;
     color: white;
     justify-content: center;
