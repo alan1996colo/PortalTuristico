@@ -1,5 +1,6 @@
+/*Todo arranca oculto*/
 #step-3,
-#step-2,
+#step-2,#step-4,
 #sugerencia {
     display: none;
 }
@@ -25,6 +26,17 @@ nav a:hover {
     font-size: large;
 
 }
+/*Para efectos de*/
+.aparecer {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .aparecer.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
 .publi {
     gap: 2px;

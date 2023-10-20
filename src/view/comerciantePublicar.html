@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Onest:wght@200;400;800&display=swap" rel="stylesheet">
 
     <script src="../controller/gestorArticulosyservicios.js"></script>
-    <script src="appcomerciante.js"></script>
     <script src="comerciante.js"></script>
 </head>
 
@@ -19,9 +18,10 @@
     <nav><a href="uiComerciante.html">Mis publicaciones</a>
     </nav>
     <h1> Publicar un nuevo articulo o servicio.</h1>
-    <form id="publisher">
-        <div class="publi" id="step-1">
-            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg" title="cancelar"></a></div>
+    <form id="publisher" >
+        <div class="publi aparecer.mostrar" id="step-1">
+            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
+                        title="cancelar"></a></div>
             <h2>Seleccione una categoria</h2>
             <!-- Primer conjunto de campos de formulario -->
             <select id="categoria" name="categoria">
@@ -41,43 +41,51 @@
                 <option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
                 <option value="Electrónica y Electricidad">Electrónica y Electricidad</option>
                 <option value="Construcción">Construcción</option>
-                <option value="Otros">Construcción</option>
+                <option value="Otros">Otros</option>
             </select>
             <button id="next-1"
-                onclick="mostrarElemento('sugerencia');mostrarElemento('step-2');ocultarElemento('step-1'); event.preventDefault();">Siguiente</button>
+                onclick="mostrarElemento('sugerencia');mostrarElemento('step-2');ocultarElemento('step-1');articulosSugeridosDe(document.forms['publisher'].elements['categoria'].value); event.preventDefault();">Siguiente</button>
         </div>
 
 
-        <div class="publi" id="step-2">
-            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg" title="cancelar"></a></div>
+        <div class="publi aparecer" id="step-2">
+            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
+                        title="cancelar"></a></div>
 
             <h2>Ingrese un nombre para su articulo</h2>
 
-            <label for="fname">Titulo del artículo:</label><br>
-            <input type="text" id="fname" name="fname">
+            <label for="title">Titulo del artículo:</label><br>
+            <input type="text" id="title" name="fname" placeholder="Ejemplo: TCL 40 SE 256 GB dark gray 6 GB RAM" required>
             <label for="tipo">Elija tipo</label>
             <select id="tipo" name="tipo" size="1">
                 <option value="Servicio">Servicio</option>
                 <option value="Producto">Producto</option>
             </select>
+            <textarea name="message"
+                style="width:200px; height:100px;" placeholder="Ingrese una breve descripción de su artículo" required></textarea>
+            <p id="mensaje"></p>
             <div> <button id="prev-1"
-                    onclick="ocultarElemento('sugerencia');mostrarElemento('step-1');ocultarElemento('step-2'); event.preventDefault();">Atras</button>
+                    onclick="ocultarElemento('sugerencia');mostrarElemento('step-1');ocultarElemento('step-ud:2');">Atras</button>
 
                 <button id="next-2"
-                    onclick=";mostrarElemento('step-3');ocultarElemento('step-2'); event.preventDefault();">Siguiente</button>
+                    onclick="continuar('step-2','step-3'); articulosSugeridosDe(document.forms['publisher'].elements['fname'].value)">Siguiente</button>
             </div>
 
         </div>
 
-        <div class="publi" id="step-3">
-            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg" title="cancelar"></a></div>
+        <div class="publi aparecer" id="step-3">
+            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
+                        title="cancelar"></a></div>
 
             <br>
-            <label for="myPic">Suba una foto de su artículo:(ingrese un enlace a la imagen)</label><br>
-            <input type="url" id="myPic" name="myPic"><br>
+            <label for="myPic">Suba una foto de su artículo:<br>(ingrese un enlace a su imagen)</label><br>
+            <input type="url" id="myPic" name="myPic" placeholder="https://picsum.photos/700/400?random" required><br>
+            <input type="url" id="myPic2" name="myPic2" placeholder="https://picsum.photos/700/400?random"><br>
+            <input type="url" id="myPic3" name="myPic3" placeholder="https://picsum.photos/700/400?random"><br>
+            <input type="url" id="myPic4" name="myPic4" placeholder="https://picsum.photos/700/400?random"><br>
+            <input type="url" id="myPic5" name="myPic5" placeholder="https://picsum.photos/700/400?random"><br>
             <br>
-            <textarea name="message" style="width:200px; height:100px;">Ingrese la descripción de su artículo</textarea>
-            <p id="mensaje"></p>
+
             <label for="precio">Si lo desea, ingrese un precio</label>
             <input type="number" id="precio" name="precio">
 
@@ -86,18 +94,51 @@
                 <input type="checkbox" id="niños" name="niños" value="niños">
                 <label for="niños"> No Niños</label><br>
                 <input type="checkbox" id="adultos" name="adultos" value="adultos">
-                <label for "adultos"> +18</label><br>
+                <label for ="adultos"> +18</label><br>
                 <input type="checkbox" id="movilidad" name="movilidad" value="movilidad">
                 <label for="movilidad"> Sin movilidad, solo en el local</label><br>
                 <label for="rOtro">Otro:</label><br>
-                <input type="text" id="rOtro" name="rOtro" value="Completar">
+                <input type="text" id="rOtro" name="rOtro" placeholder="Completar">
             </fieldset>
             <br>
             <div>
                 <button id="prev-2"
                     onclick="mostrarElemento('step-2');ocultarElemento('step-3'); event.preventDefault();">Atras</button>
-                <input type="submit" value="Publicar" onclick="agregarDatosAlJSON();event.preventDefault();">
+                <button type="submit" onclick="continuar('step-3','step-4')">Siguiente</button>
             </div>
+        </div>
+        <div class="publi aparecer" id="step-4">
+            <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
+                        title="cancelar"></a></div>
+            <h2>Informacion detallada del articulo</h2>
+            <label for="descripcion">Descripcion</label>
+            <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Ingrese una descripcion mas abundante sobre el articulo o servicio." required></textarea>
+            <label for="dimensiones">Tamaño y dimensiones:</label>
+            <textarea name="dimensiones" id="dimensiones" cols="30" rows="5" placeholder="De ser posible,para productos físicos, incluir las dimensiones y el peso del producto." ></textarea>
+            <label for="materiales">Materiales y fabricación:</label>
+            <textarea name="materiales" id="materiales" cols="30" rows="5"placeholder="Especificar los materiales utilizados en la fabricación del producto y la calidad de construcción.
+           "></textarea>
+            <label for="colores">Colores y opciones de personalización:</label>
+            <textarea name="colores" id="colores" cols="30" rows="5"placeholder="Si el producto está disponible en varios colores o se puede personalizar de alguna manera, es importante indicarlo.
+            "></textarea>
+            <label for="contacto"> Información de contacto y servicio al cliente:</label>
+            <textarea name="contacto" id="contacto" cols="30" rows="5" placeholder="Proporcionar información de contacto y detalles de servicio al cliente para que los compradores puedan obtener ayuda si es necesario."></textarea>
+
+            <fieldset>
+                <legend>Ubicacion del producto /servicio</legend>
+            <label for="latitud">Latitud:</label>
+<input type="text" id="latitud" name="latitud" pattern="^-?([1-8]?[0-9]\.\d{1,6}|90\.0{1,6})$" placeholder="Ejemplo: 40.7128" />
+
+<label for="longitud">Longitud:</label>
+<input type="text" id="longitud" name="longitud"pattern="^-?((1[0-7][0-9]|[0-9]?[0-9])\.\d{1,6}|180\.0{1,6})$" placeholder="Ejemplo: -74.0060" />
+            </fieldset>
+<div>
+<button id="prev-3"
+onclick="mostrarElemento('step-3');ocultarElemento('step-4'); event.preventDefault();">Atras</button>
+
+<button type="submit" onclick="agregarDatosAlJSON(validar('step-4')); event.preventDefault();">Publicar</button>
+
+</div>
         </div>
 
         <div>
