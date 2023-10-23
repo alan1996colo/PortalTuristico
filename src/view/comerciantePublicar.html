@@ -65,7 +65,7 @@
                 style="width:200px; height:100px;" placeholder="Ingrese una breve descripción de su artículo" required></textarea>
             <p id="mensaje"></p>
             <div> <button id="prev-1"
-                    onclick="ocultarElemento('sugerencia');mostrarElemento('step-1');ocultarElemento('step-ud:2');">Atras</button>
+                    onclick="ocultarElemento('sugerencia');mostrarElemento('step-1');ocultarElemento('step-2');">Atras</button>
 
                 <button id="next-2"
                     onclick="continuar('step-2','step-3'); articulosSugeridosDe(document.forms['publisher'].elements['fname'].value)">Siguiente</button>
@@ -136,7 +136,7 @@
 <button id="prev-3"
 onclick="mostrarElemento('step-3');ocultarElemento('step-4'); event.preventDefault();">Atras</button>
 
-<button type="submit" onclick="agregarDatosAlJSON(validar('step-4')); event.preventDefault();">Publicar</button>
+<button type="submit" onclick="agregarDatosAlJSON(validar('step-4'),getUserId()); event.preventDefault();">Publicar</button>
 
 </div>
         </div>

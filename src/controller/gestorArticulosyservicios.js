@@ -1,11 +1,13 @@
 
-function agregarDatosAlJSON(validado) {
+function agregarDatosAlJSON(validado, user_id) {
+
     if (validado) {
         var fechaActual = new Date();
         var dia = fechaActual.getDate();
         var mes = fechaActual.getMonth() + 1;
         var año = fechaActual.getFullYear();
         const formData = {
+            user_id: user_id,
             fecha: dia + '/' + mes + '/' + año,
             categoria: document.forms["publisher"].elements["categoria"].value,
             title: document.forms["publisher"].elements["title"].value,
@@ -64,24 +66,56 @@ function agregarDatosAlJSON(validado) {
 else{alert("No se ha podido validar los datos correctamente,compruebe todos los campos obligatorios e  intente nuevamente")
     
 }}
+function estado(productos){
+    if(productos==true){
+        
+        return "Disponible"
+    }else{
+        return "No Disponible"};
+}
 
-function cargarProducto() {
+
+function restricciones(restriccionesObj) {
+    var restriccionesTrue = [];
+
+    for (var restriccion in restriccionesObj) {
+        if (restriccionesObj[restriccion] === true) {
+            restriccionesTrue.push(restriccion);
+        }
+    }
+
+    return restriccionesTrue.join(', '); // Retorna una cadena separada por comas
+}
+
+
+function cargarProducto(user_id) {
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "../model/productos.json", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var productos = JSON.parse(xhr.responseText);
-            var tarjetas = document.querySelectorAll(".card-body");
+            var tarjetas = document.querySelectorAll(".card");
+            
 
-            for (var i = 0; i < eventos.length; i++) {
-                tarjetas[i].querySelector(".titulo").textContent = productos[i]["Titulo del evento"];
-                tarjetas[i].querySelector(".lugar").textContent = productos[i]["Lugar"];
-                tarjetas[i].querySelector(".horario").textContent = productos[i]["Horario"];
-                tarjetas[i].querySelector(".entrada").textContent = productos[i]["Entrada"];
-                tarjetas[i].querySelector(".descripcion").textContent = productos[i]["Descripcion"];
+            for (var i = 0; i < productos.length && i<tarjetas.length; i++) {
+                if(productos[i]["user_id"]===user_id){
+                tarjetas[i].querySelector(".card-title").textContent = productos[i]["title"];
+                tarjetas[i].querySelector(".precio").textContent = productos[i]["precio"];
+                tarjetas[i].querySelector(".fecha").textContent = productos[i]["fecha"];
+                tarjetas[i].querySelector(".categoria").textContent = productos[i]["categoria"];
+                tarjetas[i].querySelector(".tipo").textContent = productos[i]["tipo"];
+                tarjetas[i].querySelector(".restricciones").textContent = restricciones(productos[i]["restricciones"]);
+                tarjetas[i].querySelector(".estado").textContent=estado(productos[i]["disponible"]);
+                tarjetas[i].querySelector(".imglista").src=productos[i]["imagen"]["img1"];
+               
+
+
+
+                tarjetas[i].querySelector(".detalle").textContent = productos[i]["resumen"];
                 /*tarjetas[i].querySelector(".latitud").textContent = eventos[i]["Ubicacion"]["latitud"];
                 tarjetas[i].querySelector(".longitud").textContent = eventos[i]["Ubicacion"]["longitud"];
             */ }
+        }
         }
     };
     xhr.send();

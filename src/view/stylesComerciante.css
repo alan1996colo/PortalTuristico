@@ -65,6 +65,10 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
 }
+.precio-editar{
+    display: flex;
+    gap: 5px;
+}
 
 .card-body p {
     margin: 0;
@@ -99,4 +103,5 @@ nav a:hover {
     color: white;
     justify-content: center;
     align-items: center;
+    min-width: 80px;
 }

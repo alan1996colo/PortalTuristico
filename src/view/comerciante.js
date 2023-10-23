@@ -73,6 +73,13 @@ function articulosSugeridosDe(articulo) {
             console.log("el precio es" + primerResultado.price + "fin precio");
         })
         .catch(error => {
-            console.error('Error al hacer la solicitud:', error);
+            console.error('Error al hacer la solicitud a mercadoLibre:', error);
         });
+}
+
+function getUserId(){
+    return sessionStorage.getItem("user_id")
+}
+function setUserId(num){
+sessionStorage.setItem("user_id",num);  
 }
