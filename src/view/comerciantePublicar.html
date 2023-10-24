@@ -55,14 +55,14 @@
             <h2>Ingrese un nombre para su articulo</h2>
 
             <label for="title">Titulo del artículo:</label><br>
-            <input type="text" id="title" name="fname" placeholder="Ejemplo: TCL 40 SE 256 GB dark gray 6 GB RAM" required>
+            <input type="text" id="title" name="fname" placeholder="Ejemplo: TCL 40 SE 256 GB dark gray 6 GB RAM" required maxlength="80">
             <label for="tipo">Elija tipo</label>
             <select id="tipo" name="tipo" size="1">
                 <option value="Servicio">Servicio</option>
                 <option value="Producto">Producto</option>
             </select>
             <textarea name="message"
-                style="width:200px; height:100px;" placeholder="Ingrese una breve descripción de su artículo" required></textarea>
+                style="width:200px; height:100px;" placeholder="Ingrese una breve descripción de su artículo" required maxlength="350"></textarea>
             <p id="mensaje"></p>
             <div> <button id="prev-1"
                     onclick="ocultarElemento('sugerencia');mostrarElemento('step-1');ocultarElemento('step-2');">Atras</button>
@@ -114,15 +114,15 @@
             <label for="descripcion">Descripcion</label>
             <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Ingrese una descripcion mas abundante sobre el articulo o servicio." required></textarea>
             <label for="dimensiones">Tamaño y dimensiones:</label>
-            <textarea name="dimensiones" id="dimensiones" cols="30" rows="5" placeholder="De ser posible,para productos físicos, incluir las dimensiones y el peso del producto." ></textarea>
+            <textarea name="dimensiones" id="dimensiones" cols="30" rows="5" placeholder="De ser posible,para productos físicos, incluir las dimensiones y el peso del producto." maxlength="250" ></textarea>
             <label for="materiales">Materiales y fabricación:</label>
             <textarea name="materiales" id="materiales" cols="30" rows="5"placeholder="Especificar los materiales utilizados en la fabricación del producto y la calidad de construcción.
-           "></textarea>
+           " maxlength="250"></textarea>
             <label for="colores">Colores y opciones de personalización:</label>
             <textarea name="colores" id="colores" cols="30" rows="5"placeholder="Si el producto está disponible en varios colores o se puede personalizar de alguna manera, es importante indicarlo.
-            "></textarea>
+            "maxlength="250"></textarea>
             <label for="contacto"> Información de contacto y servicio al cliente:</label>
-            <textarea name="contacto" id="contacto" cols="30" rows="5" placeholder="Proporcionar información de contacto y detalles de servicio al cliente para que los compradores puedan obtener ayuda si es necesario."></textarea>
+            <textarea name="contacto" id="contacto" cols="30" rows="5" placeholder="Proporcionar información de contacto y detalles de servicio al cliente para que los compradores puedan obtener ayuda si es necesario." maxlength="250"></textarea>
 
             <fieldset>
                 <legend>Ubicacion del producto /servicio</legend>

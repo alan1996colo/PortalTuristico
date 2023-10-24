@@ -5,61 +5,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modificar articulo</title>
+
+    <link rel="stylesheet" href="stylesComerciante.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@200;400;800&display=swap" rel="stylesheet">
+
+    <script src="../controller/gestorArticulosyservicios.js"></script>
+    <script src="comerciante.js"></script>
 </head>
 <body>
 
-
-       <form id="logger">
-            <label for="fname">Cambiar Titulo del articulo:</label><br>
-            <input type="text" id="fname" name="fname" value="title">
-            <label for="tipo">Modificar tipo</label>
-            <select id="tipo" name="tipo" size="1"> <!--al poner size cambia de tamaño de los visibles-->
-                <option value="Servicio">Servicio</option>
-                <option value="Producto">Producto</option>
-            </select>
-            <br>
-            <label for="myfile">reemplazar foto de su articulo:</label><br>
-            <input type="file" id="myfile" name="myfile"><br>
-        <br>
-        <textarea name="message" style="width:200px; height:100px;">modificar descripcion de su articulo           </textarea>
-        <p id="mensaje"></p>
-        <label for="price">Modificar precio</label>
-        <input type="number" id="price" name="price" >
-
-        <fieldset>
-        <legend>Existe alguna restriccion?</legend>
-        <input type="checkbox" id="niños" name="niños" value="niños">
-        <label for="niños"> No Niños</label><br>
-        <input type="checkbox" id="adultos" name="adultos" value="adultos">
-        <label for="adultos"> +18</label><br>
-        <input type="checkbox" id="movilidad" name="movilidad" value="movilidad">
-        <label for="movilidad"> sin movilidad, solo en el local</label><br>
-        <label for="rOtro">Otro:</label><br>
-        <input type="text" id="rOtro" name="rOtro" value="Completar">
-
-    </fieldset>
-        <br> <script>
-            function redirigirComerciante( valor) {
-                var confirmacion = confirm("¿Está seguro que desea continuar?");
-                if (confirmacion) {
-                window.location.href = "uiComerciante.html";
-                if(valor=='Eliminar este articulo'){
-                alert('se ha Eliminado el articulo permanentemente');
-                
-            }
-            else{
-                alert('Se ha cargado el formulario')
-            }
-        }}
-
-
-        </script>
-
-
-        <input type="submit"  value="Actualizar" onclick=" redirigirComerciante('Actualizar');">
-       
-        <input type="submit"  value="Eliminar este articulo" onclick=" redirigirComerciante('Eliminar este articulo');">
-    </form>
+    <body style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <nav><a href="uiComerciante.html">Mis publicaciones</a>
+        </nav>
+        <h1> Modificar articulo o servicio.</h1>
+        <form id="publisher" >
+            <div class="publi aparecer.mostrar" id="step-1">
+                <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
+                            title="cancelar"></a></div>
+                <h2>¿Le gustaria cambiar la categoria?</h2>
+                <!-- Primer conjunto de campos de formulario -->
+                <select id="categoria" name="categoria">
+                    <option value="Electrónica, Audio y Video">Electrónica, Audio y Video</option>
+                    <option value="Moda y Belleza">Moda y Belleza</option>
+                    <option value="Hogar, Muebles y Jardín">Hogar, Muebles y Jardín</option>
+                    <option value="Deportes y Fitness">Deportes y Fitness</option>
+                    <option value="Autos, Motos y Otros">Autos, Motos y Otros</option>
+                    <option value="Bebés">Bebés</option>
+                    <option value="Juguetes y Hobbies">Juguetes y Hobbies</option>
+                    <option value="Electrodomésticos y Aires Ac">Electrodomésticos y Aires Ac</option>
+                    <option value="Salud y Equipamiento Médico">Salud y Equipamiento Médico</option>
+                    <option value="Libros, Revistas y Comics">Libros, Revistas y Comics</option>
+                    <option value="Música, Películas y Series">Música, Películas y Series</option>
+                    <option value="Arte y Antigüedades">Arte y Antigüedades</option>
+                    <option value="Mascotas">Mascotas</option>
+                    <option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
+                    <option value="Electrónica y Electricidad">Electrónica y Electricidad</option>
+                    <option value="Construcción">Construcción</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <script>
+                    function seleccionarCategoria(valor) {
+                      // Obtén una referencia al elemento select
+                      var selectElement = document.getElementById('categoria');
+                      
+                      // Recorre las opciones y compara los valores
+                      for (var i = 0; i < selectElement.options.length; i++) {
+                        if (selectElement.options[i].value === valor) {
+                          // Si encuentra una coincidencia, marca la opción como "selected"
+                          selectElement.options[i].selected = true;
+                          break; // Termina el bucle
+                        }
+                      }
+                    }
+                    
+                    // Llama a la función para seleccionar una categoría por valor
+                                    </script>
+             
+                <button id="next-1"
+                    onclick="mostrarElemento('sugerencia');mostrarElemento('step-2');ocultarElemento('step-1');articulosSugeridosDe(document.forms['publisher'].elements['categoria'].value); event.preventDefault();">Siguiente</button>
+            </div>
+    
+    
+            <div class="publi aparecer" id="step-2">
+                <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
+                            title="cancelar"></a></div>
+    
+                <h2>Ingrese un nombre para su articulo</h2>
+    
+                <label for="title">Titulo del artículo:</label><br>
+                <input type="text" id="title" name="fname" placeholder="Ejemplo: TCL 40 SE 256 GB dark gray 6 GB RAM" required maxlength="80">
+                <label for="tipo">Elija tipo</label>
+                <select id="tipo" name="tipo" size="1">
+                    <option value="Servicio">Servicio</option>
+                    <option value="Producto">Producto</option>
+                </select>
+                <textarea name="message"
+                    style="width:200px; height:100px;" placeholder="Ingrese una breve descripción de su artículo" required maxlength="350"></textarea>
+                <p id="mensaje"></p>
+                <div> <button id="prev-1"
+                        onclick="ocultarElemento('sugerencia');mostrarElemento('step-1');ocultarElemento('step-2');">Atras</button>
+    
+                    <button id="next-2"
+                        onclick="continuar('step-2','step-3'); articulosSugeridosDe(document.forms['publisher'].elements['fname'].value)">Siguiente</button>
+                </div>
+    
+            </div>
+    
+            <div class="publi aparecer" id="step-3">
+                <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
+                            title="cancelar"></a></div>
+    
+                <br>
+                <label for="myPic">Suba una foto de su artículo:<br>(ingrese un enlace a su imagen)</label><br>
+                <input type="url" id="myPic" name="myPic" placeholder="https://picsum.photos/700/400?random" required><br>
+                <input type="url" id="myPic2" name="myPic2" placeholder="https://picsum.photos/700/400?random"><br>
+                <input type="url" id="myPic3" name="myPic3" placeholder="https://picsum.photos/700/400?random"><br>
+                <input type="url" id="myPic4" name="myPic4" placeholder="https://picsum.photos/700/400?random"><br>
+                <input type="url" id="myPic5" name="myPic5" placeholder="https://picsum.photos/700/400?random"><br>
+                <br>
+    
+                <label for="precio">Si lo desea, ingrese un precio</label>
+                <input type="number" id="precio" name="precio">
+    
+                <fieldset>
+                    <legend>Existe alguna restricción?</legend>
+                    <input type="checkbox" id="niños" name="niños" value="niños">
+                    <label for="niños"> No Niños</label><br>
+                    <input type="checkbox" id="adultos" name="adultos" value="adultos">
+                    <label for ="adultos"> +18</label><br>
+                    <input type="checkbox" id="movilidad" name="movilidad" value="movilidad">
+                    <label for="movilidad"> Sin movilidad, solo en el local</label><br>
+                    <label for="rOtro">Otro:</label><br>
+                    <input type="text" id="rOtro" name="rOtro" placeholder="Completar">
+                </fieldset>
+                <br>
+                <div>
+                    <button id="prev-2"
+                        onclick="mostrarElemento('step-2');ocultarElemento('step-3'); event.preventDefault();">Atras</button>
+                    <button type="submit" onclick="continuar('step-3','step-4')">Siguiente</button>
+                </div>
+            </div>
+            <div class="publi aparecer" id="step-4">
+                <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
+                            title="cancelar"></a></div>
+                <h2>Informacion detallada del articulo</h2>
+                <label for="descripcion">Descripcion</label>
+                <textarea name="descripcion" id="descripcion" cols="30" rows="10" placeholder="Ingrese una descripcion mas abundante sobre el articulo o servicio." required></textarea>
+                <label for="dimensiones">Tamaño y dimensiones:</label>
+                <textarea name="dimensiones" id="dimensiones" cols="30" rows="5" placeholder="De ser posible,para productos físicos, incluir las dimensiones y el peso del producto." maxlength="250" ></textarea>
+                <label for="materiales">Materiales y fabricación:</label>
+                <textarea name="materiales" id="materiales" cols="30" rows="5"placeholder="Especificar los materiales utilizados en la fabricación del producto y la calidad de construcción.
+               " maxlength="250"></textarea>
+                <label for="colores">Colores y opciones de personalización:</label>
+                <textarea name="colores" id="colores" cols="30" rows="5"placeholder="Si el producto está disponible en varios colores o se puede personalizar de alguna manera, es importante indicarlo.
+                "maxlength="250"></textarea>
+                <label for="contacto"> Información de contacto y servicio al cliente:</label>
+                <textarea name="contacto" id="contacto" cols="30" rows="5" placeholder="Proporcionar información de contacto y detalles de servicio al cliente para que los compradores puedan obtener ayuda si es necesario." maxlength="250"></textarea>
+    
+                <fieldset>
+                    <legend>Ubicacion del producto /servicio</legend>
+                <label for="latitud">Latitud:</label>
+    <input type="text" id="latitud" name="latitud" pattern="^-?([1-8]?[0-9]\.\d{1,6}|90\.0{1,6})$" placeholder="Ejemplo: 40.7128" />
+    
+    <label for="longitud">Longitud:</label>
+    <input type="text" id="longitud" name="longitud"pattern="^-?((1[0-7][0-9]|[0-9]?[0-9])\.\d{1,6}|180\.0{1,6})$" placeholder="Ejemplo: -74.0060" />
+                </fieldset>
+    <div>
+    <button id="prev-3"
+    onclick="mostrarElemento('step-3');ocultarElemento('step-4'); event.preventDefault();">Atras</button>
+    
+    <button type="submit" onclick="agregarDatosAlJSON(validar('step-4'),getUserId()); event.preventDefault();">Publicar</button>
+    
+    </div>
+            </div>
+            <div>
+                <p id="sugerencia">Buscando articulos sugeridos...</p>
+            </div>
+        </form>
+    
     
 </body>
 </html>
