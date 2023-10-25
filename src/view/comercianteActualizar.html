@@ -45,26 +45,16 @@
                     <option value="Construcción">Construcción</option>
                     <option value="Otros">Otros</option>
                 </select>
-                <script>
-                    function seleccionarCategoria(valor) {
-                      // Obtén una referencia al elemento select
-                      var selectElement = document.getElementById('categoria');
-                      
-                      // Recorre las opciones y compara los valores
-                      for (var i = 0; i < selectElement.options.length; i++) {
-                        if (selectElement.options[i].value === valor) {
-                          // Si encuentra una coincidencia, marca la opción como "selected"
-                          selectElement.options[i].selected = true;
-                          break; // Termina el bucle
-                        }
-                      }
-                    }
-                    
-                    // Llama a la función para seleccionar una categoría por valor
-                                    </script>
+            <h2> Modificar Stock</h2>
+            <select id="disponible">
+                <option value="false" title="Producto agotado"> No Disponible</option>
+                <option value="true"  title="Aun hay stock"> Disponible</option>
+
+
+            </select>
              
                 <button id="next-1"
-                    onclick="mostrarElemento('sugerencia');mostrarElemento('step-2');ocultarElemento('step-1');articulosSugeridosDe(document.forms['publisher'].elements['categoria'].value); event.preventDefault();">Siguiente</button>
+                    onclick=" mostrarElemento('sugerencia');mostrarElemento('step-2');ocultarElemento('step-1');articulosSugeridosDe(document.forms['publisher'].elements['categoria'].value); event.preventDefault();">Siguiente</button>
             </div>
     
     
@@ -72,7 +62,7 @@
                 <div class="imagen"><a href="uiComerciante.html"><img src="../assets/circle-x-filled.svg"
                             title="cancelar"></a></div>
     
-                <h2>Ingrese un nombre para su articulo</h2>
+                <h2>Modificar nombre de su articulo</h2>
     
                 <label for="title">Titulo del artículo:</label><br>
                 <input type="text" id="title" name="fname" placeholder="Ejemplo: TCL 40 SE 256 GB dark gray 6 GB RAM" required maxlength="80">
@@ -88,7 +78,7 @@
                         onclick="ocultarElemento('sugerencia');mostrarElemento('step-1');ocultarElemento('step-2');">Atras</button>
     
                     <button id="next-2"
-                        onclick="continuar('step-2','step-3'); articulosSugeridosDe(document.forms['publisher'].elements['fname'].value)">Siguiente</button>
+                        onclick="continuar('step-2','step-3'); articulosSugeridosDe(document.forms['publisher'].elements['fname'].value);event.preventDefault()">Siguiente</button>
                 </div>
     
             </div>
@@ -124,7 +114,7 @@
                 <div>
                     <button id="prev-2"
                         onclick="mostrarElemento('step-2');ocultarElemento('step-3'); event.preventDefault();">Atras</button>
-                    <button type="submit" onclick="continuar('step-3','step-4')">Siguiente</button>
+                    <button onclick="continuar('step-3','step-4');event.preventDefault();">Siguiente</button>
                 </div>
             </div>
             <div class="publi aparecer" id="step-4">
@@ -156,7 +146,7 @@
     <button id="prev-3"
     onclick="mostrarElemento('step-3');ocultarElemento('step-4'); event.preventDefault();">Atras</button>
     
-    <button type="submit" onclick="agregarDatosAlJSON(validar('step-4'),getUserId()); event.preventDefault();">Publicar</button>
+    <button type="button" onclick="agregarDatosAlJSON(validar('step-4'),getUserId(),toBoolean(document.getElementById('disponible').value)); event.preventDefault();">Publicar</button>
     
     </div>
             </div>
@@ -164,7 +154,20 @@
                 <p id="sugerencia">Buscando articulos sugeridos...</p>
             </div>
         </form>
-    
-    
+     <script>cargarUnproducto();</script>
+        <script>marcarCategoriaSelected();marcarTitulo();marcarResumen();modificarTipo();modificarStock();
+        modificarImagenes();
+        modificarPrecio();modificarRestriccion();
+        </script>
+        <script> 
+        modificarDescripcion();
+        modificarTamano();
+        modificarMateriales();
+        modificarColores();
+        modificarContactos();
+        modificarUbicacion();
+        
+        </script>
+        
 </body>
 </html>

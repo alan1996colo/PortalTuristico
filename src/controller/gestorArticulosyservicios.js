@@ -1,5 +1,4 @@
-
-function agregarDatosAlJSON(validado, user_id) {
+function agregarDatosAlJSON(validado, user_id, disponible) {
 
     if (validado) {
         var fechaActual = new Date();
@@ -11,7 +10,7 @@ function agregarDatosAlJSON(validado, user_id) {
             fecha: dia + '/' + mes + '/' + año,
             categoria: document.forms["publisher"].elements["categoria"].value,
             title: document.forms["publisher"].elements["title"].value,
-            disponible: true,
+            disponible: disponible,
             tipo: document.forms["publisher"].elements["tipo"].value,
             resumen: document.forms["publisher"].elements["message"].value,
             precio: document.forms["publisher"].elements["precio"].value,
@@ -68,42 +67,6 @@ function agregarDatosAlJSON(validado, user_id) {
 
     }
 }
-function getEstado(productos) {
-    if (productos == true) {
-
-        return "Disponible"
-    } else {
-        return "No Disponible"
-    };
-}
-
-
-function restricciones(restriccionesObj) {
-    var restriccionesTrue = [];
-
-    for (var restriccion in restriccionesObj) {
-        if (restriccionesObj[restriccion] === true) {
-            restriccionesTrue.push(restriccion);
-        }
-
-    }
-    if(restriccionesObj.otro!=''){
-        restriccionesTrue.push(restriccionesObj.otro)
-    }
-    if (restriccionesTrue.length == 0) {
-        return 'No'
-    }
-
-    return restriccionesTrue.join(', '); // Retorna una cadena separada por comas
-}
-
-function selectArticle(str){
-    console.log("se ejecuta select")
-    sessionStorage.setItem('articleSelected',str);
-}
-function getSelectedArticle(){
-    return sessionStorage.getItem('articleSelected');
-}
 
 function cargarProducto(user_id) {
     var xhr = new XMLHttpRequest();
@@ -116,98 +79,173 @@ function cargarProducto(user_id) {
             for (var i = 0; i < productos.length; i++) {
                 if (productos[i]["user_id"] === user_id) {
 
-                    const articulo = document.createElement('article');
-                    articulo.classList.add('card')
-                    articulo.classList.add('d-flex')
-                    articulo.classList.add('flex-row')
-
-                    const imgCard = document.createElement('img');
-                    imgCard.setAttribute('src', productos[i]["imagen"]["img1"]);
-                    imgCard.classList.add('imglista');
-                    articulo.append(imgCard);
-
-                    const cardBody = document.createElement('div');
-                    cardBody.classList.add('card-body');
-                    articulo.append(cardBody)
-
-
-                    const bodyHeader = document.createElement('header');
-                    bodyHeader.classList.add('card-h');
-                    cardBody.append(bodyHeader)
-
-                    const cardTitle = document.createElement('h6');
-                    cardTitle.classList.add('card-title');
-                    cardTitle.textContent = productos[i]["title"];
-                    bodyHeader.append(cardTitle);
-
-                    const precioEditar = document.createElement('div');
-                    precioEditar.classList.add('precio-editar');
-                    bodyHeader.append(precioEditar);
-
-                    const precio = document.createElement('div');
-                    precio.classList.add('precio');
-                    precio.textContent = '$' + productos[i]["precio"];
-                    precioEditar.append(precio);
-
-                    const editar = document.createElement('a');
-                    editar.classList.add('btn');
-                    editar.classList.add('btn-primary');
-                    editar.textContent = 'Editar';
-                    editar.setAttribute('data-title', productos[i]["title"]); // Agregar el atributo "data-title"
-                    precioEditar.append(editar);
-                    
-                    const time = document.createElement('time');
-                    time.textContent = productos[i]["fecha"];
-
-                    cardBody.append(time);
-
-                    const pCategoria = document.createElement('p');
-                    pCategoria.innerHTML += 'Categoria:<span class="categoria" id="categoria">Farmacia</span> Estado: <span class="estado"> Disponible/No disponible</span>'
-                    const categoria = pCategoria.querySelector('#categoria')
-                    categoria.textContent = productos[i]["categoria"];
-
-
-                    const estado = pCategoria.querySelector('.estado');
-                    estado.textContent = getEstado(productos[i]["disponible"]);
-
-                    cardBody.append(pCategoria)
-
-                    cardBody.innerHTML += '<p>Tipo: <span class="tipo"> Articulo/servicio</span></p>'
-                    const eTipo = cardBody.querySelector('.tipo');
-                    eTipo.textContent = productos[i]["tipo"];
-
-                    cardBody.innerHTML += ' <p> Restricciones:<span class="restricciones">Solo niños, solo mascotas, +18,etc</span></p>'
-                    const eRestricciones = cardBody.querySelector('.restricciones');
-                    eRestricciones.textContent = restricciones(productos[i]["restricciones"]);
-
-                    cardBody.innerHTML += '<p class="card-text">Detalle:<span class="detalle">';
-                    const eDetalle = cardBody.querySelector('.detalle');
-                    eDetalle.textContent = productos[i]["resumen"];
-
-
-
-                    misArticulos.append(articulo)
+                    misArticulos.append(crearArticulo(productos[i]));
                 }
             }
         }
-        afterload();   
+        afterload();
     };
     xhr.send();
+}
 
-}function afterload() {
+function crearArticulo(producto) {
+
+    const articulo = document.createElement('article');
+    articulo.classList.add('card')
+    articulo.classList.add('d-flex')
+    articulo.classList.add('flex-row')
+
+    articulo.append(crearImg(producto["imagen"]["img1"]));
+
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+    articulo.append(cardBody)
+
+
+    const bodyHeader = document.createElement('header');
+    bodyHeader.classList.add('card-h');
+    cardBody.append(bodyHeader)
+
+    const cardTitle = document.createElement('h6');
+    cardTitle.classList.add('card-title');
+    cardTitle.textContent = producto["title"];
+    bodyHeader.append(cardTitle);
+
+    const precioEditar = document.createElement('div');
+    precioEditar.classList.add('precio-editar');
+    bodyHeader.append(precioEditar);
+
+    const precio = document.createElement('div');
+    precio.classList.add('precio');
+    precio.textContent = '$' + producto["precio"];
+    precioEditar.append(precio);
+
+
+    precioEditar.append(crearBoton(producto["title"]));
+
+    const time = document.createElement('time');
+    time.textContent = producto["fecha"];
+
+    cardBody.append(time);
+
+    const pCategoria = document.createElement('p');
+    pCategoria.innerHTML += 'Categoria:<span class="categoria" id="categoria">Farmacia</span> Estado: <span class="estado"> Disponible/No disponible</span>'
+    const categoria = pCategoria.querySelector('#categoria')
+    categoria.textContent = producto["categoria"];
+
+
+    const estado = pCategoria.querySelector('.estado');
+    estado.textContent = getEstado(producto["disponible"]);
+
+    cardBody.append(pCategoria)
+
+    cardBody.innerHTML += '<p>Tipo: <span class="tipo"> Articulo/servicio</span></p>'
+    const eTipo = cardBody.querySelector('.tipo');
+    eTipo.textContent = producto["tipo"];
+
+    cardBody.innerHTML += ' <p> Restricciones:<span class="restricciones">Solo niños, solo mascotas, +18,etc</span></p>'
+    const eRestricciones = cardBody.querySelector('.restricciones');
+    eRestricciones.textContent = restricciones(producto["restricciones"]);
+
+    cardBody.innerHTML += '<p class="card-text">Detalle:<span class="detalle">';
+    const eDetalle = cardBody.querySelector('.detalle');
+    eDetalle.textContent = producto["resumen"];
+
+    return articulo;
+}
+
+function crearImg(url) {
+    const imgCard = document.createElement('img');
+    imgCard.setAttribute('src', url);
+    imgCard.classList.add('imglista');
+    return imgCard;
+}
+function crearBoton(dataTitle) {
+
+    const editar = document.createElement('a');
+    editar.classList.add('btn');
+    editar.classList.add('btn-primary');
+    editar.textContent = 'Editar';
+    editar.setAttribute('href', 'comercianteActualizar.html')
+    editar.setAttribute('data-title', dataTitle); // Agregar el atributo "data-title"
+
+    return editar;
+}
+
+function getEstado(productos) {
+    if (productos == true) {
+
+        return "Disponible"
+    }
+    else {
+        return "No Disponible"
+    };
+}
+
+
+function restricciones(restriccionesObj) {
+    var restriccionesTrue = [];
+
+    for (var restriccion in restriccionesObj) {
+        if (restriccionesObj[restriccion] === true) {
+            restriccionesTrue.push(restriccion);
+        }
+    }
+    if (restriccionesObj.otro != '') {
+        restriccionesTrue.push(restriccionesObj.otro)
+    }
+    if (restriccionesTrue.length == 0) {
+        return 'No'
+    }
+
+    return restriccionesTrue.join(', '); // Retorna una cadena separada por comas
+}
+
+
+/***Agrega el evento a todos los botones para que guarde a cual articulo se dio click**/
+function afterload() {
     var elementos = document.querySelectorAll('.btn');
-    console.log(elementos.length);
-
     for (var i = 0; i < elementos.length; i++) {
-        console.log(i + 1);
-
         (function (el) {
             el.addEventListener("click", function () {
-                console.log(el.getAttribute('data-title'));
+
+                selectArticle(el.getAttribute('data-title'));
             });
         })(elementos[i]); // Pass the current element to the closure
     }
 }
 
+function selectArticle(str) {
+    console.log("se ejecuta select")
+    sessionStorage.setItem('articleSelected', str);
+}
+function getSelectedArticle() {
+    return sessionStorage.getItem('articleSelected');
+}
 
+/**
+ * Carga el item con el userId y title, previamente almacenado en la sesionStorage
+ * y almacena el objeto JSOn en un arreglo Json en la sesionStorage, en el item variable "producto"
+ */
+function cargarUnproducto() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "../model/productos.json", false); // No quiero que se cargue la página si no se cargó el producto.
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var productos = JSON.parse(xhr.responseText);
+            var resultado = [];
+            for (var i = 0; i < productos.length; i++) {
+                if (productos[i].user_id === getUserId() && productos[i].title === getSelectedArticle()) {
+                    console.log("Se encontró el artículo esperado en la posición " + i);
+                    resultado.push(productos[i]);
+                }
+            }
+            // Guardar los resultados en el sessionStorage
+            sessionStorage.setItem("producto", JSON.stringify(resultado));
+        }
+    };
+    xhr.send();
     
+}
+
+
