@@ -5,6 +5,7 @@ function agregarDatosAlJSON(validado, user_id, disponible) {
         var dia = fechaActual.getDate();
         var mes = fechaActual.getMonth() + 1;
         var año = fechaActual.getFullYear();
+        const sesionData=sessionStorage.getItem("producto");
         const formData = {
             user_id: user_id,
             fecha: dia + '/' + mes + '/' + año,
@@ -49,8 +50,20 @@ function agregarDatosAlJSON(validado, user_id, disponible) {
             })
             .catch(error => console.error("No se pudo cargar el archivo JSON", error))
             .finally(() => {
+
+                const tituloABorrar =JSON.parse(sessionStorage.getItem("producto"));
+              //el problema era que el json estaba como string, entonces en esta linea de arriba lo converti a json
+if(tituloABorrar.length!=0){
+for (let i = 0; i < jsonData.length; i++) {
+    if (jsonData[i].title === tituloABorrar[0].title&&jsonData[i].user_id === tituloABorrar[0].user_id) {
+        jsonData.splice(i, 1); // Elimina el elemento en la posición i
+        i--; // Decrementa i para evitar omitir el siguiente elemento después de la eliminación
+    }
+}}
                 // Agregamos los nuevos datos al final del arreglo
                 jsonData.push(formData);
+
+               
 
                 // Guardamos los datos actualizados en el archivo JSON
                 const jsonStr = JSON.stringify(jsonData);
