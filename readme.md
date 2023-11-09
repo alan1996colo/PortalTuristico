@@ -30,10 +30,9 @@ Se puede instalar facilmente desde el IDE, o consultar el repo de los desarrolla
 ------------------------------------------------------------------
 		9/11/23
   Acceso rapido a la Documentacion:
--  [Arquitectura](https://drive.google.com/file/d/1UUZjI6-6o-RYY2M_ukrtK4pF-QJOCdZ_/view?usp=sharing)
-
+-  [Requerimientos](https://github.com/alan1996colo/PortalTuristico/blob/master/docs/SRS-Portal-Turistico.pdf)
 -  [Casos de uso](https://drive.google.com/file/d/19FAd61mSIlAhghX8Roo4W9CKN9HgQOzS/view?usp=sharing)
-
+-  [Arquitectura](https://drive.google.com/file/d/1UUZjI6-6o-RYY2M_ukrtK4pF-QJOCdZ_/view?usp=sharing)
 -  [Modelo conceptual](https://drive.google.com/file/d/116j2FeV5MUKVlBiLlnocm33J7B6JeDU7/view?usp=sharing)
 
 
