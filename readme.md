@@ -27,4 +27,13 @@ Para resolver esto estamos usando la extension de VisualStudio LiveServer.
 Se puede instalar facilmente desde el IDE, o consultar el repo de los desarrolladores.
 
 [LiveServer](https://github.com/ritwickdey/vscode-live-server-plus-plus)
+------------------------------------------------------------------
+		9/11/23
+  Acceso rapido a la Documentacion:
+-  [Arquitectura](https://drive.google.com/file/d/1UUZjI6-6o-RYY2M_ukrtK4pF-QJOCdZ_/view?usp=sharing)
+
+-  [Casos de uso](https://drive.google.com/file/d/19FAd61mSIlAhghX8Roo4W9CKN9HgQOzS/view?usp=sharing)
+
+-  [Modelo conceptual](https://drive.google.com/file/d/116j2FeV5MUKVlBiLlnocm33J7B6JeDU7/view?usp=sharing)
+
 
