@@ -42,7 +42,7 @@
                 <div class="input-group input-group-lg"> <!-- Utiliza input-group para un mejor diseño -->
                     <input type="text" class="form-control form-control-lg" id="search-input"
                         placeholder="Buscar comerciante...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn btn-primary"  onclick="buscarComerciante()" >Buscar</button>
                 </div>
             </form>
 
@@ -71,7 +71,7 @@
                 <div class="input-group input-group-lg"> <!-- Utiliza input-group para un mejor diseño -->
                     <input type="text" class="form-control form-control-lg" id="search-input"
                         placeholder="Buscar personal de Secretaria...">
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="submit" class="btn btn-primary" onclick="buscarPersonalSecretaria()">Buscar</button>
                 </div>
             </form>
 
@@ -122,7 +122,27 @@
                 contenidoOpcionPersonalSecretaria.style.display = "block";
             }
         });
+
+
+
+
+        function buscarPersonalSecretaria(){
+            alert("secret")
+        }
+
+        function buscarComerciante(){
+            alert("comerc")
+        }
+
     </script>
+
+
+
+
+
+
+
+
 
 </body>
 

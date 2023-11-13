@@ -70,27 +70,6 @@ nav a:hover {
 .cotiza {
   flex: .6;
 }
-.cotiza table{
-  width: 100%;
-  margin: 20px;
-border: 3px solid rgb(21, 21, 136);
-}
-
-.cotiza td{
-  background-color: gray;
-  border-bottom: solid 2px lightgreen;
-  padding:2px;
-  color: white;
-  text-shadow: 1px 1px black;
-}
-.subtitulo{
-  background-color: lightgreen;
-}
-.titulo{
-  background-color: rgb(21, 21, 136);
-  text-align: center;
-  color:white;
-}
 
 .main {
   flex: 2;
