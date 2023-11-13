@@ -15,6 +15,7 @@
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
   <script src="cotizador.js"></script>
+  <script src="../controller/gestorArticulosyservicios.js"></script>
 
 </head>
 
@@ -45,66 +46,30 @@
 
       <section class="filtros">
         <select class="form-select" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option selected>Filtrar por</option>
+          <option value="1">Articulos</option>
+          <option value="2">Servicios</option>
         </select>
         <select class="form-select" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option selected>Radio</option>
+          <option value="1">0-5km</option>
+          <option value="2">0-10km</option>
+          <option value="3">0-25km</option>
         </select>
         <select class="form-select" aria-label="Default select example">
-          <option selected>Open this select menu</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
+          <option selected>Ordenar por</option>
+          <option value="1">Más cercano a mi ubicacio</option>
+          <option value="1">Más alejado a mi ubicacion</option>
+          <option value="1">Más reciente</option>
+          <option value="2">Más antiguo</option>
         </select>
 
       </section>
-      <section class="lista-articulos">
-        <div class="card d-flex flex-row-reverse mw-800">
-          <img class="imglista" src="https://picsum.photos/700/400?random" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">COlumna izquierda</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="visitanteArticuloDetalle.html" class="btn btn-primary">ver mas</a>
-          </div>
-        </div>
-
-        <div class="card d-flex flex-row-reverse mw-800">
-          <img class="imglista" src="https://picsum.photos/400/400?random" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">COlumna izquierda</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="visitanteArticuloDetalle.html" class="btn btn-primary">ver mas</a>
-          </div>
-        </div>
-
-        <div class="card d-flex flex-row-reverse mw-800">
-          <img class="imglista" src="https://picsum.photos/200/400?random" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">COlumna izquierda</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="visitanteArticuloDetalle.html" class="btn btn-primary">ver mas</a>
-          </div>
-        </div>
-
-        <div class="card d-flex flex-row-reverse mw-800">
-          <img class="imglista" src="https://picsum.photos/300/400?random" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">COlumna izquierda</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="visitanteArticuloDetalle.html" class="btn btn-primary">ver mas</a>
-          </div>
-        </div>
-      </section>
+      <section class="lista-articulos" id="mis-articulos">
+       
+<!-- Aca se mostrara la lista de articulos y servicios disponibles-->
+<script>cargarProducto("visitante");</script>
+       </section>
     </div>
 
     <aside class="cotiza" id="cotiza">
