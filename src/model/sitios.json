@@ -1,0 +1,59 @@
+[
+    {
+        "nombre": "Mar de las Sirenas",
+        "foto": "https://picsum.photos/id/74/400",
+        "descripcion": "Disfruta de este hermoso mar y sus aguas con misterios por explorar.",
+        "atractivos": [
+            {
+                "nombre": "Paseo en bote",
+                "foto": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Phra_Nang_beach_45.jpg/800px-Phra_Nang_beach_45.jpg",
+                "resumen": "Navega con excelentes botes por las aguas de Mar de las Sirenas",
+                "descripcion": "Disfruta de un emocionante paseo en bote por las tranquilas aguas de nuestro hermoso lugar. Navega a lo largo de la costa y sumérgete en la belleza natural que nos rodea. Contempla paisajes impresionantes, observa la vida marina y relájate mientras las suaves olas te acarician."
+            },
+            {
+                "nombre": "Buceo",
+                "foto": "https://journey.app/blog/wp-content/uploads/2019/02/como-empece-a-bucear-buceo-para-principiantes-journey-app.jpg",
+                "resumen": "Sumergete en una travesia por el fondo de Mar de las Sirenas",
+                "descripcion": "Sumérgete en las cristalinas aguas de nuestro increíble lugar y descubre un mundo submarino lleno de maravillas. Nuestro destino es conocido por sus impresionantes sitios de buceo, donde podrás explorar arrecifes de coral vibrantes, nadar junto a coloridos peces tropicales y descubrir la vida marina en su máximo esplendor. Con aguas cálidas y una visibilidad excepcional, el buceo en nuestro lugar es una experiencia única que te dejará sin aliento. "
+            }
+        ]
+    },
+    {
+        "nombre": "Montaña PicoAlto",
+        "foto": "https://images.unsplash.com/photo-1653151106766-52f14da3bb68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80",
+        "descripcion": "1",
+        "atractivos": [
+            {
+                "nombre": "Cabalgata",
+                "foto": "https://picsum.photos/700/400?random",
+                "resumen": "Paseo en caballo por la gran Montaña PicoAlto",
+                "descripcion": "Disfruta de la emocionante experiencia de cabalgar en un lugar encantador. Sumérgete en la belleza natural mientras te desplazas a través de exuberantes senderos rodeados de paisajes impresionantes. Siente la conexión con la majestuosidad de los caballos y la naturaleza mientras exploras el terreno montañoso."
+            },
+            {
+                "nombre": "b3",
+                "foto": "https://picsum.photos/700/400?random",
+                "resumen": "1",
+                "descripcion": "1"
+            }
+        ]
+    },
+    {
+        "nombre": "montaña",
+        "foto": "https://picsum.photos/700/400?random",
+        "descripcion": "1",
+        "atractivos": [
+            {
+                "nombre": "a1",
+                "foto": "https://picsum.photos/700/400?random",
+                "resumen": "1",
+                "descripcion": "1"
+            },
+            {
+                "nombre": "a2",
+                "foto": "https://picsum.photos/700/400?random",
+                "resumen": "1",
+                "descripcion": "1"
+            }
+        ]
+    }
+]
