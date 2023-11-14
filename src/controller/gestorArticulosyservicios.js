@@ -1,3 +1,4 @@
+
 function agregarDatosAlJSON(validado, user_id, disponible) {
 
     if (validado) {
@@ -83,31 +84,153 @@ function agregarDatosAlJSON(validado, user_id, disponible) {
 }
 
 function cargarProducto(user_id) {
-
+    if(sessionStorage.getItem('sort')==null){
+        sessionStorage.setItem('sort','reciente');
+    }
+    sort=sessionStorage.getItem('sort');
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "../model/productos.json", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var productos = JSON.parse(xhr.responseText);
+            if(sort=="antiguo"){
+                productos.sort(function(a, b) {
+                    // Convierte las fechas en objetos Date para que se puedan comparar
+                    var dateA = new Date(a.fecha.split('/').reverse().join('/'));
+                    var dateB = new Date(b.fecha.split('/').reverse().join('/'));
+                
+                    // Compara las fechas
+                    return dateA - dateB;
+                });
+            }
+            if(sort=="reciente"){
+                productos.sort(function(a, b) {
+                    // Convierte las fechas en objetos Date para que se puedan comparar
+                    var dateA = new Date(a.fecha.split('/').reverse().join('/'));
+                    var dateB = new Date(b.fecha.split('/').reverse().join('/'));
+                
+                    // Compara las fechas en sentido inverso (de más reciente a más antiguo)
+                    return dateB - dateA;
+                });
+            }
             const misArticulos = document.getElementById('mis-articulos');
+            var contador = 0;
+            var ii=0;
+            if(sessionStorage.getItem('paginaDesde')!=null){
+                ii=parseInt(sessionStorage.getItem('paginaDesde'))
 
-            for (var i = 0; i < productos.length; i++) {
+            }
+            for (i = ii; i < productos.length; i++) {
                 if (productos[i]["user_id"] === user_id) {//el comerciante solo ve sus productos
 
                     misArticulos.append(crearArticulo(productos[i], user_id));
                 }
                 else {
-                    if (productos[i]["disponible"]) {//el visitante solo ve los productos disponibles.
-                        misArticulos.append(crearArticulo(productos[i], user_id));
+                    //checkeamos en sesion.storage en que pagina nos encontramos
+                    if (sessionStorage.getItem('paginaDesde') == null) {
+                        sessionStorage.setItem('paginaDesde', 0);
+                        sessionStorage.setItem('cantProductosMostrar', 5);
+                    }
+
+                    if (i >= sessionStorage.getItem('paginaDesde') && contador < sessionStorage.getItem('cantProductosMostrar') && productos[i]["disponible"]) {//el visitante solo ve los productos disponibles.
+                        console.log("aca entra")
+                        console.log(sessionStorage.getItem('filtrarServicios'))
+                        if (sessionStorage.getItem('filtrarServicios')=='true') {
+                            console.log("entro en filtrar servicios");
+                            if (productos[i]['tipo'] === 'Servicio') {
+                            console.log("entro en crear productos");
+
+                                misArticulos.append(crearArticulo(productos[i], user_id));
+
+                                contador++;
+                                sessionStorage.setItem('ultimoProducto', i);
+                            }
+                        }
+
+                        else {
+                            if (sessionStorage.getItem('filtrarArticulos') == 'true') {
+                                console.log("entro en filtrar articulos");
+
+
+                                if (productos[i]['tipo'] === 'Producto') {
+                                    misArticulos.append(crearArticulo(productos[i], user_id));
+
+                                    contador++;
+                                    sessionStorage.setItem('ultimoProducto', i);
+                                }
+
+
+
+
+                            }
+                            else {
+                                if (sessionStorage.getItem('filtrarArticulos') == null||sessionStorage.getItem('filtrarArticulos') == false && sessionStorage.getItem('filtrarServicios') == false) {
+
+
+                                    misArticulos.append(crearArticulo(productos[i], user_id));
+
+                                    contador++;
+                                    sessionStorage.setItem('ultimoProducto', i);
+                                }
+
+                            }
+                        }
+
+
 
 
                     }
+
+
                 }
             }
+
+
         }
         afterload();
     };
     xhr.send();
+}
+function siguientePagina() {
+    sessionStorage.setItem('paginaDesde', parseInt(sessionStorage.getItem('ultimoProducto')) + 1);
+}
+function anteriorPagina() {
+    var desde = parseInt(sessionStorage.getItem('paginaDesde')) - 5 < 0 ? 0 : parseInt(sessionStorage.getItem('paginaDesde')) - 5;
+    sessionStorage.setItem('paginaDesde', desde);
+
+}
+
+function filtrarArticulosyServicios(value) {
+    if (value == 1) {
+        filtrarArticulos(true);
+        filtrarServicios(false);
+    }
+
+    else if (value == 2) {
+        filtrarArticulos(false);
+        filtrarServicios(true);
+
+
+    }
+    else {
+
+        filtrarArticulos(false);
+        filtrarServicios(false);
+    }
+location.reload();
+
+}
+
+function filtrarServicios(boolean) {
+    sessionStorage.setItem('filtrarServicios', boolean);
+
+
+}
+function filtrarArticulos(boolean) {
+    sessionStorage.setItem('filtrarArticulos', boolean);
+
+
+
 }
 
 function crearArticulo(producto, cliente) {
@@ -182,19 +305,19 @@ function crearArticulo(producto, cliente) {
     cardBody.innerHTML += '<p class="card-text">Detalle:<span class="detalle">';
     const eDetalle = cardBody.querySelector('.detalle');
     eDetalle.textContent = producto["resumen"];
-    
-    if(cliente=="visitante"){
+
+    if (cliente == "visitante") {
         cardBody.append(insertarNombreVendedor(producto["user_id"]))
-        }
+    }
     return articulo;
 }
 
-function insertarNombreVendedor(vendedorNombre){
-    const footer=document.createElement('footer');
-    const a=document.createElement('a');
-    a.setAttribute('href','#');//mas adelante si creamos perfiles de vendedor podemos enlazar aca
-    a.setAttribute('title','nombre del comercio');
-    a.textContent=vendedorNombre;
+function insertarNombreVendedor(vendedorNombre) {
+    const footer = document.createElement('footer');
+    const a = document.createElement('a');
+    a.setAttribute('href', '#');//mas adelante si creamos perfiles de vendedor podemos enlazar aca
+    a.setAttribute('title', 'nombre del comercio');
+    a.textContent = vendedorNombre;
     footer.append(a);
     return footer;
 
@@ -303,6 +426,31 @@ function cargarUnproducto() {
     };
     xhr.send();
 
+}
+
+
+function seleccionarSort(value){
+    switch(value){
+        case 'reciente':
+            setSortReciente();
+            break;
+        case 'antiguo':
+            setSortAntiguo();
+            break;
+    
+    default:
+        setSortReciente();
+        break;
+    }
+    location.reload();
+
+}
+
+function setSortReciente(){
+    sessionStorage.setItem('sort','reciente');
+}
+function setSortAntiguo(){
+    sessionStorage.setItem('sort','antiguo');
 }
 
 

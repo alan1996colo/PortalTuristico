@@ -31,7 +31,6 @@
 
     <nav ><!--ESPACIO VACIO, esto le da espacio al nav para que no tape otros componentes, no borrar -->
       <ul>
-<<<<<<< HEAD
         <li><a href=""><img src="" alt="Home">I</a></li>
       </ul>
     </nav>
@@ -44,10 +43,10 @@
     <div class="main">
 
       <section class="filtros">
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example"onchange="filtrarArticulosyServicios(this.value);">
           <option selected>Filtrar por</option>
           <option value="1">Articulos</option>
-          <option value="2">Servicios</option>
+          <option value="2" >Servicios</option>
         </select>
         <select class="form-select" aria-label="Default select example">
           <option selected>Radio</option>
@@ -55,19 +54,19 @@
           <option value="2">0-10km</option>
           <option value="3">0-25km</option>
         </select>
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example" onchange="seleccionarSort(this.value);">
           <option selected>Ordenar por</option>
           <option value="1">Más cercano a mi ubicacio</option>
-          <option value="1">Más alejado a mi ubicacion</option>
-          <option value="1">Más reciente</option>
-          <option value="2">Más antiguo</option>
+          <option value="2">Más alejado a mi ubicacion</option>
+          <option value="reciente">Más reciente</option>
+          <option value="antiguo">Más antiguo</option>
         </select>
 
       </section>
       <section class="lista-articulos" id="mis-articulos">
        
 <!-- Aca se mostrara la lista de articulos y servicios disponibles-->
-<script>cargarProducto("visitante");</script>
+<script>cargarProducto("visitante","antiguo");</script>
        </section>
     </div>
 
@@ -85,16 +84,16 @@
   </main>
   <nav aria-label="...">
     <ul class="pagination">
-      <li class="page-item disabled">
-        <a class="page-link">Previous</a>
+      <li class="page-item">
+        <a class="page-link"  href="" onclick="anteriorPagina();" >Previous</a>
       </li>
       <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
       <li class="page-item">
-        <a class="page-link" href="visitanteProductos2.html">2</a>
+        <a class="page-link" title="proximamente" href="">2</a>
       </li>
-      <li class="page-item"><a class="page-link" href="visitanteProductos3.html">3</a></li>
+      <li class="page-item"><a class="page-link" title="proximamente" href="">3</a></li>
       <li class="page-item">
-        <a class="page-link" href="visitanteProductos2.html">Next</a>
+        <a class="page-link" href="" onclick="siguientePagina();">Next</a>
       </li>
     </ul>
   </nav>
