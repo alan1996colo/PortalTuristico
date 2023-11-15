@@ -54,7 +54,7 @@ function agregarDatosAlJSON(validado, user_id, disponible) {
 
                 const tituloABorrar = JSON.parse(sessionStorage.getItem("producto"));
                 //el problema era que el json estaba como string, entonces en esta linea de arriba lo converti a json
-                if (tituloABorrar.length != 0) {
+                if (tituloABorrar!=null&&tituloABorrar.length != 0) {
                     for (let i = 0; i < jsonData.length; i++) {
                         if (jsonData[i].title === tituloABorrar[0].title && jsonData[i].user_id === tituloABorrar[0].user_id) {
                             jsonData.splice(i, 1); // Elimina el elemento en la posición i
@@ -84,40 +84,72 @@ function agregarDatosAlJSON(validado, user_id, disponible) {
 }
 
 function cargarProducto(user_id) {
-    if(sessionStorage.getItem('sort')==null){
-        sessionStorage.setItem('sort','reciente');
+    if (sessionStorage.getItem('sort') == null) {
+        sessionStorage.setItem('sort', 'reciente');
     }
-    sort=sessionStorage.getItem('sort');
+    sort = sessionStorage.getItem('sort');
+
+    if(sessionStorage.getItem('ratio')==null){
+        sessionStorage.setItem('ratio','50');
+    }
+    var ratio=sessionStorage.getItem('ratio');
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "../model/productos.json", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var productos = JSON.parse(xhr.responseText);
-            if(sort=="antiguo"){
-                productos.sort(function(a, b) {
+            if(ratio!='50'){
+                productos=productos.filter(producto => {
+                    const distancia = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')),parseFloat(sessionStorage.getItem('longitud')),
+                      parseFloat(producto.ubicacion.latitud),
+                     parseFloat(producto.ubicacion.longitud)
+                    );
+                    console.log('distancia:'+distancia+' ratio:'+ratio+' titulo:'+producto.title);//breakpoint
+                    return distancia < parseInt(ratio);
+                  });
+            }
+
+            if (sort == 'cercano') {
+                productos.sort(function (a, b) {
+                    var distanciaA = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')), parseFloat(sessionStorage.getItem('longitud')), parseFloat(a.ubicacion.latitud), parseFloat(a.ubicacion.longitud));
+                    var distanciaB = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')), parseFloat(sessionStorage.getItem('longitud')), parseFloat(b.ubicacion.latitud), parseFloat(b.ubicacion.longitud));
+                    return distanciaA - distanciaB;
+                });
+            }
+            if (sort == 'lejano') {
+                productos.sort(function (a, b) {
+                    var distanciaA = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')), parseFloat(sessionStorage.getItem('longitud')), parseFloat(a.ubicacion.latitud), parseFloat(a.ubicacion.longitud));
+                    var distanciaB = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')), parseFloat(sessionStorage.getItem('longitud')), parseFloat(b.ubicacion.latitud), parseFloat(b.ubicacion.longitud));
+                  return distanciaB - distanciaA;
+                });
+            }
+
+
+            if (sort == "antiguo") {
+                productos.sort(function (a, b) {
                     // Convierte las fechas en objetos Date para que se puedan comparar
                     var dateA = new Date(a.fecha.split('/').reverse().join('/'));
                     var dateB = new Date(b.fecha.split('/').reverse().join('/'));
-                
+
                     // Compara las fechas
                     return dateA - dateB;
                 });
             }
-            if(sort=="reciente"){
-                productos.sort(function(a, b) {
+            if (sort == "reciente") {
+                productos.sort(function (a, b) {
                     // Convierte las fechas en objetos Date para que se puedan comparar
                     var dateA = new Date(a.fecha.split('/').reverse().join('/'));
                     var dateB = new Date(b.fecha.split('/').reverse().join('/'));
-                
+
                     // Compara las fechas en sentido inverso (de más reciente a más antiguo)
                     return dateB - dateA;
                 });
             }
             const misArticulos = document.getElementById('mis-articulos');
             var contador = 0;
-            var ii=0;
-            if(sessionStorage.getItem('paginaDesde')!=null){
-                ii=parseInt(sessionStorage.getItem('paginaDesde'))
+            var ii = 0;
+            if (sessionStorage.getItem('paginaDesde') != null) {
+                ii = parseInt(sessionStorage.getItem('paginaDesde'))
 
             }
             for (i = ii; i < productos.length; i++) {
@@ -133,12 +165,11 @@ function cargarProducto(user_id) {
                     }
 
                     if (i >= sessionStorage.getItem('paginaDesde') && contador < sessionStorage.getItem('cantProductosMostrar') && productos[i]["disponible"]) {//el visitante solo ve los productos disponibles.
-                        console.log("aca entra")
-                        console.log(sessionStorage.getItem('filtrarServicios'))
-                        if (sessionStorage.getItem('filtrarServicios')=='true') {
+
+                        if (sessionStorage.getItem('filtrarServicios') == 'true') {
                             console.log("entro en filtrar servicios");
                             if (productos[i]['tipo'] === 'Servicio') {
-                            console.log("entro en crear productos");
+                                console.log("entro en crear productos");
 
                                 misArticulos.append(crearArticulo(productos[i], user_id));
 
@@ -164,7 +195,7 @@ function cargarProducto(user_id) {
 
                             }
                             else {
-                                if (sessionStorage.getItem('filtrarArticulos') == null||sessionStorage.getItem('filtrarArticulos') == false && sessionStorage.getItem('filtrarServicios') == false) {
+                                if (sessionStorage.getItem('filtrarArticulos') == null || sessionStorage.getItem('filtrarArticulos') == false && sessionStorage.getItem('filtrarServicios') == false) {
 
 
                                     misArticulos.append(crearArticulo(productos[i], user_id));
@@ -185,11 +216,14 @@ function cargarProducto(user_id) {
                 }
             }
 
+            mapitaMostrar(productos);
 
-        }
+        }         
+
         afterload();
     };
     xhr.send();
+    
 }
 function siguientePagina() {
     sessionStorage.setItem('paginaDesde', parseInt(sessionStorage.getItem('ultimoProducto')) + 1);
@@ -217,7 +251,7 @@ function filtrarArticulosyServicios(value) {
         filtrarArticulos(false);
         filtrarServicios(false);
     }
-location.reload();
+    location.reload();
 
 }
 
@@ -429,28 +463,122 @@ function cargarUnproducto() {
 }
 
 
-function seleccionarSort(value){
-    switch(value){
+function seleccionarSort(value) {
+    switch (value) {
         case 'reciente':
             setSortReciente();
             break;
         case 'antiguo':
             setSortAntiguo();
             break;
-    
-    default:
-        setSortReciente();
-        break;
+        case 'cercano':
+            setSortCercano();
+            break;
+        case 'lejano':
+            setSortLejano();
+            break;
+
+        default:
+            setSortReciente();
+            break;
     }
     location.reload();
 
 }
+function setSortLejano() {
+    obtenerUbicacion();
+    sessionStorage.setItem('sort', 'lejano');
+}
 
-function setSortReciente(){
-    sessionStorage.setItem('sort','reciente');
+function setSortCercano() {
+    obtenerUbicacion();
+    sessionStorage.setItem('sort', 'cercano');
 }
-function setSortAntiguo(){
-    sessionStorage.setItem('sort','antiguo');
+
+function setSortReciente() {
+    sessionStorage.setItem('sort', 'reciente');
 }
+function setSortAntiguo() {
+    sessionStorage.setItem('sort', 'antiguo');
+}
+
+
+function selectFiltrarRatio(value) {
+    obtenerUbicacion()
+        .then(() => {
+            // La ubicación se ha obtenido, puedes continuar con el resto del código
+            if (value > 0) {
+                sessionStorage.setItem('ratio', value);
+                console.log('ratio okay');
+                location.reload();
+            } else {
+                console.log("Error: el radio debe ser mayor a cero");
+            }
+        })
+        .catch(error => {
+            console.error("Error al obtener la ubicación: " + error.message);
+        });
+}
+
+function obtenerUbicacion() {
+    return new Promise((resolve, reject) => {
+        if (sessionStorage.getItem('latitud') !== null) {
+            // Si la ubicación ya está en sessionStorage, resuelve la promesa
+            resolve();
+        } else if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    sessionStorage.setItem('latitud', position.coords.latitude);
+                    sessionStorage.setItem('longitud', position.coords.longitude);
+                    resolve();  // Resuelve la promesa cuando la ubicación se obtiene con éxito
+                },
+                function (error) {
+                    reject(error);  // Rechaza la promesa si hay un error al obtener la ubicación
+                }
+            );
+        } else {
+            reject(new Error("Geolocalización no es compatible en este navegador"));
+        }
+    });
+}
+
+function calcularDistancia(lat1, lon1, lat2, lon2) {
+    // Radio de la Tierra en kilómetros
+    const radioTierra = 6371;
+
+    // Convertir las coordenadas de grados a radianes
+    const latitud1Rad = gradosARadianes(lat1);
+    const longitud1Rad = gradosARadianes(lon1);
+    const latitud2Rad = gradosARadianes(lat2);
+    const longitud2Rad = gradosARadianes(lon2);
+
+    // Diferencias de coordenadas
+    const deltaLatitud = latitud2Rad - latitud1Rad;
+    const deltaLongitud = longitud2Rad - longitud1Rad;
+
+    // Fórmula de la haversina
+    const a = Math.sin(deltaLatitud / 2) * Math.sin(deltaLatitud / 2) +
+        Math.cos(latitud1Rad) * Math.cos(latitud2Rad) *
+        Math.sin(deltaLongitud / 2) * Math.sin(deltaLongitud / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    // Distancia en kilómetros
+    const distancia = radioTierra * c;
+
+    return distancia;
+}
+
+function gradosARadianes(grados) {
+    return grados * (Math.PI / 180);
+}
+
+function resetPage(){
+    sessionStorage.setItem('paginaDesde',0);
+    location.reload();
+}
+
+// Ejemplo de uso
+// const distancia = calcularDistancia(40.7128, -74.0060, 34.0522, -118.2437);
+// console.log("Distancia entre las dos ubicaciones: " + distancia + " km");
 
 

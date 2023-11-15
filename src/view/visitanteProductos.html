@@ -15,6 +15,9 @@
     crossorigin="anonymous"></script>
   <script src="cotizador.js"></script>
   <script src="../controller/gestorArticulosyservicios.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="mapitas.js"></script>
 
   </head>
 <body>
@@ -48,16 +51,16 @@
           <option value="1">Articulos</option>
           <option value="2" >Servicios</option>
         </select>
-        <select class="form-select" aria-label="Default select example">
+        <select class="form-select" aria-label="Default select example" onchange="selectFiltrarRatio(this.value);">
           <option selected>Radio</option>
-          <option value="1">0-5km</option>
-          <option value="2">0-10km</option>
-          <option value="3">0-25km</option>
+          <option value="5">0-5km</option>
+          <option value="10">0-10km</option>
+          <option value="25">0-25km</option>
         </select>
         <select class="form-select" aria-label="Default select example" onchange="seleccionarSort(this.value);">
           <option selected>Ordenar por</option>
-          <option value="1">Más cercano a mi ubicacio</option>
-          <option value="2">Más alejado a mi ubicacion</option>
+          <option value="cercano">Más cercano a mi ubicacion</option>
+          <option value="lejano">Más alejado a mi ubicacion</option>
           <option value="reciente">Más reciente</option>
           <option value="antiguo">Más antiguo</option>
         </select>
@@ -76,8 +79,15 @@
 
       <!--<iframe id="monedas" src="https://www.dolarsi.com/func/moduloArriba-n.html" width="100%" height="700px" frameborder="0"></iframe>  -->
 
-    </aside>
 
+
+      <div id="map" style="height: 400px;"></div>
+
+      <!-- Script para inicializar el mapa --> <script>
+  
+</script>
+
+    </aside>
 
 
 
@@ -87,11 +97,11 @@
       <li class="page-item">
         <a class="page-link"  href="" onclick="anteriorPagina();" >Previous</a>
       </li>
-      <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active" aria-current="page"><button class="page-link"  onclick="resetPage();">1</button></li>
       <li class="page-item">
-        <a class="page-link" title="proximamente" href="">2</a>
+        <a class="page-link" title="proximamente" >...</a>
       </li>
-      <li class="page-item"><a class="page-link" title="proximamente" href="">3</a></li>
+      <li class="page-item"><a class="page-link" title="proximamente" >3</a></li>
       <li class="page-item">
         <a class="page-link" href="" onclick="siguientePagina();">Next</a>
       </li>
