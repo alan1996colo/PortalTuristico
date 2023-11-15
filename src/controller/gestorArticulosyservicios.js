@@ -54,7 +54,7 @@ function agregarDatosAlJSON(validado, user_id, disponible) {
 
                 const tituloABorrar = JSON.parse(sessionStorage.getItem("producto"));
                 //el problema era que el json estaba como string, entonces en esta linea de arriba lo converti a json
-                if (tituloABorrar!=null&&tituloABorrar.length != 0) {
+                if (tituloABorrar != null && tituloABorrar.length != 0) {
                     for (let i = 0; i < jsonData.length; i++) {
                         if (jsonData[i].title === tituloABorrar[0].title && jsonData[i].user_id === tituloABorrar[0].user_id) {
                             jsonData.splice(i, 1); // Elimina el elemento en la posición i
@@ -89,24 +89,24 @@ function cargarProducto(user_id) {
     }
     sort = sessionStorage.getItem('sort');
 
-    if(sessionStorage.getItem('ratio')==null){
-        sessionStorage.setItem('ratio','50');
+    if (sessionStorage.getItem('ratio') == null) {
+        sessionStorage.setItem('ratio', '50');
     }
-    var ratio=sessionStorage.getItem('ratio');
+    var ratio = sessionStorage.getItem('ratio');
     var xhr = new XMLHttpRequest();
     xhr.open("GET", "../model/productos.json", true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var productos = JSON.parse(xhr.responseText);
-            if(ratio!='50'){
-                productos=productos.filter(producto => {
-                    const distancia = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')),parseFloat(sessionStorage.getItem('longitud')),
-                      parseFloat(producto.ubicacion.latitud),
-                     parseFloat(producto.ubicacion.longitud)
+            if (ratio != '50') {
+                productos = productos.filter(producto => {
+                    const distancia = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')), parseFloat(sessionStorage.getItem('longitud')),
+                        parseFloat(producto.ubicacion.latitud),
+                        parseFloat(producto.ubicacion.longitud)
                     );
-                    console.log('distancia:'+distancia+' ratio:'+ratio+' titulo:'+producto.title);//breakpoint
+                    console.log('distancia:' + distancia + ' ratio:' + ratio + ' titulo:' + producto.title);//breakpoint
                     return distancia < parseInt(ratio);
-                  });
+                });
             }
 
             if (sort == 'cercano') {
@@ -120,7 +120,7 @@ function cargarProducto(user_id) {
                 productos.sort(function (a, b) {
                     var distanciaA = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')), parseFloat(sessionStorage.getItem('longitud')), parseFloat(a.ubicacion.latitud), parseFloat(a.ubicacion.longitud));
                     var distanciaB = calcularDistancia(parseFloat(sessionStorage.getItem('latitud')), parseFloat(sessionStorage.getItem('longitud')), parseFloat(b.ubicacion.latitud), parseFloat(b.ubicacion.longitud));
-                  return distanciaB - distanciaA;
+                    return distanciaB - distanciaA;
                 });
             }
 
@@ -218,12 +218,12 @@ function cargarProducto(user_id) {
 
             mapitaMostrar(productos);
 
-        }         
+        }
 
         afterload();
     };
     xhr.send();
-    
+
 }
 function siguientePagina() {
     sessionStorage.setItem('paginaDesde', parseInt(sessionStorage.getItem('ultimoProducto')) + 1);
@@ -300,10 +300,10 @@ function crearArticulo(producto, cliente) {
     precioEditar.append(precio);
 
     if (cliente != "visitante") {
-        precioEditar.append(crearBoton(producto["title"]));
+        precioEditar.append(crearBoton(producto["title"], producto["user_id"]));
     }
     else {
-        precioEditar.append(crearVermas(producto["title"]));
+        precioEditar.append(crearVermas(producto["title"], producto["user_id"]));
     }
     const time = document.createElement('time');
     time.textContent = producto["fecha"];
@@ -363,7 +363,7 @@ function crearImg(url) {
     imgCard.classList.add('imglista');
     return imgCard;
 }
-function crearBoton(dataTitle) {
+function crearBoton(dataTitle, vendedor) {
 
     const editar = document.createElement('a');
     editar.classList.add('btn');
@@ -371,17 +371,18 @@ function crearBoton(dataTitle) {
     editar.textContent = 'Editar';
     editar.setAttribute('href', 'comercianteActualizar.html')
     editar.setAttribute('data-title', dataTitle); // Agregar el atributo "data-title"
+    editar.setAttribute('vendedor', vendedor);
 
     return editar;
 }
-function crearVermas(dataTitle) {
+function crearVermas(dataTitle, vendedor) {
     const vermas = document.createElement('a');
     vermas.classList.add('btn');
     vermas.classList.add('btn-primary');
     vermas.textContent = 'Ver más';
     vermas.setAttribute('href', 'visitanteArticuloDetalle.html')
     vermas.setAttribute('data-title', dataTitle); // Agregar el atributo "data-title"
-
+    vermas.setAttribute('vendedor', vendedor)
     return vermas;
 
 }
@@ -424,6 +425,7 @@ function afterload() {
             el.addEventListener("click", function () {
 
                 selectArticle(el.getAttribute('data-title'));
+                selectVendedor(el.getAttribute('vendedor'));
             });
         })(elementos[i]); // Pass the current element to the closure
     }
@@ -435,6 +437,9 @@ function selectArticle(str) {
 }
 function getSelectedArticle() {
     return sessionStorage.getItem('articleSelected');
+}
+function selectVendedor(vendedor) {
+    sessionStorage.setItem('vendedor', vendedor);
 }
 
 /**
@@ -450,6 +455,28 @@ function cargarUnproducto() {
             var resultado = [];
             for (var i = 0; i < productos.length; i++) {
                 if (productos[i].user_id === getUserId() && productos[i].title === getSelectedArticle()) {
+                    console.log("Se encontró el artículo esperado en la posición " + i);
+                    resultado.push(productos[i]);
+                }
+            }
+            // Guardar los resultados en el sessionStorage
+            sessionStorage.setItem("producto", JSON.stringify(resultado));
+        }
+    };
+    xhr.send();
+
+}
+
+/**Carga el producto del vendedor pasado por parametro y lo almacena en sesionStorage "producto" */
+function cargarElproducto(titulo, vendedor) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "../model/productos.json", false); // No quiero que se cargue la página si no se cargó el producto.
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var productos = JSON.parse(xhr.responseText);
+            var resultado = [];
+            for (var i = 0; i < productos.length; i++) {
+                if (productos[i].user_id === vendedor && productos[i].title === titulo) {
                     console.log("Se encontró el artículo esperado en la posición " + i);
                     resultado.push(productos[i]);
                 }
@@ -572,13 +599,7 @@ function gradosARadianes(grados) {
     return grados * (Math.PI / 180);
 }
 
-function resetPage(){
-    sessionStorage.setItem('paginaDesde',0);
+function resetPage() {
+    sessionStorage.setItem('paginaDesde', 0);
     location.reload();
 }
-
-// Ejemplo de uso
-// const distancia = calcularDistancia(40.7128, -74.0060, 34.0522, -118.2437);
-// console.log("Distancia entre las dos ubicaciones: " + distancia + " km");
-
-

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,20 +20,21 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="mapitas.js"></script>
 
-  </head>
+</head>
+
 <body>
   <header>
     <nav class="fixed-nav">
-        <ul>
-          <li><a href="uiVisitanteHome.html"><img  src="../assets/home.svg" alt="Home">Home</a></li>
-            <li><a href="visitanteEventos.html"><img  src="../assets/calendar-event.svg" alt="eventos">Eventos</a></li>
-            <li><a href="visitanteSitios.html"> <img src="../assets/sitios.svg" alt="sitios"> Sitios de interés</a></li>
-            <li><a href="visitanteAsistencia.html"><img src="../assets/apoyo.svg" alt="apoyo"> Asistencia</a></li>
-            <li><a href="visitanteProductos.html"><img src="../assets/productos.svg" alt="productos"> Productos</a></li>
-        </ul>
+      <ul>
+        <li><a href="uiVisitanteHome.html"><img src="../assets/home.svg" alt="Home">Home</a></li>
+        <li><a href="visitanteEventos.html"><img src="../assets/calendar-event.svg" alt="eventos">Eventos</a></li>
+        <li><a href="visitanteSitios.html"> <img src="../assets/sitios.svg" alt="sitios"> Sitios de interés</a></li>
+        <li><a href="visitanteAsistencia.html"><img src="../assets/apoyo.svg" alt="apoyo"> Asistencia</a></li>
+        <li><a href="visitanteProductos.html"><img src="../assets/productos.svg" alt="productos"> Productos</a></li>
+      </ul>
     </nav>
 
-    <nav ><!--ESPACIO VACIO, esto le da espacio al nav para que no tape otros componentes, no borrar -->
+    <nav><!--ESPACIO VACIO, esto le da espacio al nav para que no tape otros componentes, no borrar -->
       <ul>
         <li><a href=""><img src="" alt="Home">I</a></li>
       </ul>
@@ -46,10 +48,11 @@
     <div class="main">
 
       <section class="filtros">
-        <select class="form-select" aria-label="Default select example"onchange="filtrarArticulosyServicios(this.value);">
+        <select class="form-select" aria-label="Default select example"
+          onchange="filtrarArticulosyServicios(this.value);">
           <option selected>Filtrar por</option>
           <option value="1">Articulos</option>
-          <option value="2" >Servicios</option>
+          <option value="2">Servicios</option>
         </select>
         <select class="form-select" aria-label="Default select example" onchange="selectFiltrarRatio(this.value);">
           <option selected>Radio</option>
@@ -67,10 +70,10 @@
 
       </section>
       <section class="lista-articulos" id="mis-articulos">
-       
-<!-- Aca se mostrara la lista de articulos y servicios disponibles-->
-<script>cargarProducto("visitante","antiguo");</script>
-       </section>
+
+        <!-- Aca se mostrara la lista de articulos y servicios disponibles-->
+        <script>cargarProducto("visitante", "antiguo");</script>
+      </section>
     </div>
 
     <aside class="cotiza" id="cotiza">
@@ -83,9 +86,7 @@
 
       <div id="map" style="height: 400px;"></div>
 
-      <!-- Script para inicializar el mapa --> <script>
-  
-</script>
+
 
     </aside>
 
@@ -95,17 +96,18 @@
   <nav aria-label="...">
     <ul class="pagination">
       <li class="page-item">
-        <a class="page-link"  href="" onclick="anteriorPagina();" >Previous</a>
+        <a class="page-link" href="" onclick="anteriorPagina();">Previous</a>
       </li>
-      <li class="page-item active" aria-current="page"><button class="page-link"  onclick="resetPage();">1</button></li>
+      <li class="page-item active" aria-current="page"><button class="page-link" onclick="resetPage();">1</button></li>
       <li class="page-item">
-        <a class="page-link" title="proximamente" >...</a>
+        <a class="page-link" title="proximamente">...</a>
       </li>
-      <li class="page-item"><a class="page-link" title="proximamente" >3</a></li>
+      <li class="page-item"><a class="page-link" title="proximamente">3</a></li>
       <li class="page-item">
         <a class="page-link" href="" onclick="siguientePagina();">Next</a>
       </li>
     </ul>
   </nav>
 </body>
+
 </html>
