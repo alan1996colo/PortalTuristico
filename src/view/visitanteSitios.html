@@ -44,8 +44,8 @@
 
    
     <main class="event-pag"> 
-        <div class="event-container">
-            <section class="lista-eventos">
+        <div class="event-container d-flex justify-content-center">
+            <section class="lista-eventos text-center">
                 <div class="card">
                     <div class="card-body d-flex flex-row-reverse card-event" id="sitio-1">
                         <img class="foto" src="" class="card-img-top" alt="...">
@@ -104,19 +104,6 @@
                 </div>
 
             </section>
-
-            <div id="map" class="mapa">
-                <script>var map = L.map('map').setView([-34.52276652978017, -58.70772746597854], 10); // Cambia las coordenadas y el nivel de zoom
-
-                    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        maxZoom: 19,
-                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                    }).addTo(map);
-
-                </script>
-            </div>
-
-
         </div>
     </main>
 

@@ -1,7 +1,7 @@
 [
     {
         "nombre": "Mar de las Sirenas",
-        "foto": "https://picsum.photos/id/74/400",
+        "foto": "https://img.freepik.com/foto-gratis/mar-tropical-hermoso-mar-playa-cielo-azul-nube-blanca-copyspace_74190-8663.jpg",
         "descripcion": "Disfruta de este hermoso mar y sus aguas con misterios por explorar.",
         "atractivos": [
             {
@@ -14,45 +14,45 @@
                 "nombre": "Buceo",
                 "foto": "https://journey.app/blog/wp-content/uploads/2019/02/como-empece-a-bucear-buceo-para-principiantes-journey-app.jpg",
                 "resumen": "Sumergete en una travesia por el fondo de Mar de las Sirenas",
-                "descripcion": "Sumérgete en las cristalinas aguas de nuestro increíble lugar y descubre un mundo submarino lleno de maravillas. Nuestro destino es conocido por sus impresionantes sitios de buceo, donde podrás explorar arrecifes de coral vibrantes, nadar junto a coloridos peces tropicales y descubrir la vida marina en su máximo esplendor. Con aguas cálidas y una visibilidad excepcional, el buceo en nuestro lugar es una experiencia única que te dejará sin aliento. "
+                "descripcion": "Sumérgete en las cristalinas aguas de nuestro increíble lugar y descubre un mundo submarino lleno de maravillas. Nuestro destino es conocido por sus impresionantes sitios de buceo, donde podrás explorar arrecifes de coral vibrantes, nadar junto a coloridos peces tropicales y descubrir la vida marina en su máximo esplendor."
             }
         ]
     },
     {
         "nombre": "Montaña PicoAlto",
         "foto": "https://images.unsplash.com/photo-1653151106766-52f14da3bb68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8&w=1000&q=80",
-        "descripcion": "1",
+        "descripcion": "Explora esta gran y alta montaña, con sus atractivos llenos de adrenalina.",
         "atractivos": [
             {
                 "nombre": "Cabalgata",
-                "foto": "https://picsum.photos/700/400?random",
+                "foto": "https://calafate.tours/wp-content/uploads/2023/01/cabalgata-experience-1.jpg",
                 "resumen": "Paseo en caballo por la gran Montaña PicoAlto",
                 "descripcion": "Disfruta de la emocionante experiencia de cabalgar en un lugar encantador. Sumérgete en la belleza natural mientras te desplazas a través de exuberantes senderos rodeados de paisajes impresionantes. Siente la conexión con la majestuosidad de los caballos y la naturaleza mientras exploras el terreno montañoso."
             },
             {
-                "nombre": "b3",
-                "foto": "https://picsum.photos/700/400?random",
-                "resumen": "1",
-                "descripcion": "1"
+                "nombre": "Tirolesas",
+                "foto": "https://www.eluniversal.com.mx/resizer/ZK8Bw8HLvN2XjNHLGv7Pk8BfXjQ=/1100x666/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/IMO6J6OVHVEOJBZJU2ACOGNT5U.jpg",
+                "resumen": "Lanzamiento en tirolesas por la alta Montaña PicoAlto",
+                "descripcion": "¡Descubre la emoción de deslizarte por el aire en tirolesas sobre una montaña y vive una experiencia inolvidable! Nuestro atractivo te ofrece la oportunidad de disfrutar de la adrenalina y la belleza natural en un solo lugar. Imagina estar suspendido en el aire, deslizándote a toda velocidad por cables tensados a lo largo de la montaña."
             }
         ]
     },
     {
-        "nombre": "montaña",
-        "foto": "https://picsum.photos/700/400?random",
-        "descripcion": "1",
+        "nombre": "Parque Saltarin",
+        "foto": "https://previews.123rf.com/images/dayzeren/dayzeren1309/dayzeren130900002/22858448-las-ilustraciones-de-los-s%C3%ADmbolos-del-parque-de-atracciones-aislados-en-fondo-blanco.jpg",
+        "descripcion": "Disfruta de este hermoso parque de diversiones tanto para niños como adultos.",
         "atractivos": [
             {
-                "nombre": "a1",
-                "foto": "https://picsum.photos/700/400?random",
-                "resumen": "1",
-                "descripcion": "1"
+                "nombre": "Juegos infantiles",
+                "foto": "https://grupopineda.eu/wp-content/uploads/2022/03/shutterstock_152666036.jpg",
+                "resumen": "Conjunto de juegos para todos los niños.",
+                "descripcion": "¡Ven y descubre el lugar perfecto para que los más pequeños se diviertan y disfruten al máximo! Nuestro atractivo se centra en ofrecer una amplia variedad de juegos infantiles que garantizan risas, aventuras y momentos inolvidables para los niños. En nuestro lugar, encontrarás todo lo que necesitas para que los niños se entretengan y se diviertan de manera segura."
             },
             {
-                "nombre": "a2",
-                "foto": "https://picsum.photos/700/400?random",
-                "resumen": "1",
-                "descripcion": "1"
+                "nombre": "Sillas Voladoras",
+                "foto": "https://bestonjuegosmecanicos.com.mx/wp-content/uploads/2017/03/Sillas-Voladoras-Parque-De-Atracciones.jpg",
+                "resumen": "Sube a nuestras sillas voladoras y diviertete.",
+                "descripcion": "¡Descubre la magia de volar en nuestras increíbles sillas voladoras! Nuestro atractivo te ofrece una experiencia única y emocionante que te transportará a alturas inimaginables. Las sillas voladoras son una atracción clásica que combina la emoción de girar y elevarse en el aire. Sentado en una cómoda silla suspendida, te elevarás suavemente mientras el mundo a tu alrededor gira."
             }
         ]
     }
