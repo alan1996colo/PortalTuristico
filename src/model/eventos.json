@@ -2,7 +2,7 @@
     {
       "Titulo del evento": "Festival de Jazz",
       "Lugar": "Parque de la costa",
-      "Horario": "Viernes, 10 de junio a las 18:00",
+      "Horario": "Miercoles, 15 de noviembre a las 18:00",
       "Entrada": "Gratis",
       "Descripcion": "Un emocionante festival de jazz con actuaciones en vivo de artistas reconocidos y puestos de comida.",
       "Ubicacion": {
@@ -13,7 +13,7 @@
     {
       "Titulo del evento": "Exposición de Arte Moderno",
       "Lugar": "Galería de Arte Contemporáneo",
-      "Horario": "Sábado, 22 de julio a las 15:00",
+      "Horario": "Sábado, 18 de noviembre a las 15:00",
       "Entrada": "$10 por persona",
       "Descripcion": "Explora las últimas obras de arte moderno de talentosos artistas locales y nacionales.",
       "Ubicacion": {
@@ -24,7 +24,7 @@
     {
       "Titulo del evento": "Carrera Benéfica",
       "Lugar": "Parque Riverside",
-      "Horario": "Domingo, 5 de agosto a las 09:00",
+      "Horario": "Martes, 21 de noviembre a las 09:00",
       "Entrada": "Donación sugerida de $20",
       "Descripcion": "Participa en una carrera benéfica para apoyar a una causa importante.",
       "Ubicacion": {
@@ -35,7 +35,7 @@
     {
       "Titulo del evento": "Fiesta de la Playa",
       "Lugar": "Playa Sunshine",
-      "Horario": "Sábado, 30 de julio a las 14:00",
+      "Horario": "Viernes, 24 de noviembre a las 14:00",
       "Entrada": "Entrada gratuita, actividades con costo adicional",
       "Descripcion": "Disfruta de un día soleado en la playa con música, deportes acuáticos y comida deliciosa.",
       "Ubicacion": {
@@ -46,7 +46,7 @@
     {
       "Titulo del evento": "Feria de la Ciencia",
       "Lugar": "Centro de Convenciones",
-      "Horario": "Sábado, 12 de septiembre a las 10:00",
+      "Horario": "Lunes, 27 de noviembre a las 10:00",
       "Entrada": "$5 por adulto, gratis para niños menores de 12 años",
       "Descripcion": "Explora la magia de la ciencia con exhibiciones interactivas y experimentos emocionantes.",
       "Ubicacion": {
