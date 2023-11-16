@@ -21,7 +21,7 @@ Enlaces utiles:
 ------------------------------------------------------------
 		19/10/23
 		
-La persistencia de archivos maneniendo los datos previos solo funciona montando algun servidor , porque se supone que el navegador no deberia poder tener acceso a tus archivos sin tu consentimiento.
+La persistencia de archivos manteniendo los datos previos solo funciona montando algun servidor , porque se supone que el navegador no deberia poder tener acceso a tus archivos sin tu consentimiento.
 Para resolver esto estamos usando la extension de VisualStudio LiveServer.
 Se puede instalar facilmente desde el IDE, o consultar el repo de los desarrolladores.
 
@@ -34,7 +34,7 @@ Se puede instalar facilmente desde el IDE, o consultar el repo de los desarrolla
 -  [Casos de uso](https://drive.google.com/file/d/19FAd61mSIlAhghX8Roo4W9CKN9HgQOzS/view?usp=sharing)
 -  [Arquitectura](https://drive.google.com/file/d/1UUZjI6-6o-RYY2M_ukrtK4pF-QJOCdZ_/view?usp=sharing)
 -  [Modelo conceptual](https://drive.google.com/file/d/116j2FeV5MUKVlBiLlnocm33J7B6JeDU7/view?usp=sharing)
--  [Grant](https://github.com/alan1996colo/PortalTuristico/blob/master/docs/GantPortalTuristico.pdf)
+-  [Gantt](https://github.com/alan1996colo/PortalTuristico/blob/master/docs/GantPortalTuristico.pdf)
 
 
 ## [Introduccion](#Introduccion)
@@ -43,13 +43,13 @@ La Secretaría de Turismo de una ciudad busca promover el turismo mediante la cr
 ## [Instalación](#instalación)
 1. Clone o descargue el repositorio $ git clone https://github.com/alan1996colo/PortalTuristico.git
 2. Dirijase a la carpeta PortalTuristico/src/view
-3. Abra el archivo uiVisitanteHome.html con visualStudiocode
+3. Abra el archivo uiVisitanteHome.html con visual Studio code
    1.	Si no tiene instalado visual Studio Code, pero tiene conocimientos en apacheServer y otros servidores.
-   2.	Mueva la carpeta al DocumentRoot o equivalente wwww. configure apache,  vaya visitando las url que ve a continuacion y disfrute
-   3.	Si no tiene ese tipo de conocimientos use el comando ´$ sudo apt install code´ para instalarl visual studio code
+   2.	Mueva la carpeta al DocumentRoot o equivalente www. configure apache,  vaya visitando las url que ve a continuacion y disfrute
+   3.	Si no tiene ese tipo de conocimientos use el comando ´$ sudo apt install code´ para instalar visual studio code
    4.	Luego desde visual Studio code, descague la extension LiveServer.
 4. Haga segundo click en el archivo uiVisitanteHome.html y seleccione en "open with liveServer"
-5. Desde ahora cada vez que quiera probar una pagina, debe abrirla de esta manera, o si ya ha iniciado liveServer, solo debe ingresar la url de la pagina que quiere visitar.
+5. Desde ahora cada vez que quiera probar una pagina, debe abrirla de esta manera, o si ya ha iniciado liveServer, solo debe ingresar la url de la pagina que quiere visitar en el navegador.
 
 
 ## [visitante](#visitante)
