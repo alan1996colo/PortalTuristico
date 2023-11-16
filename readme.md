@@ -2,6 +2,7 @@
 
 _Este software se proporciona 'tal cual' sin garantías ni condiciones de ningún tipo, ya sean expresas o implícitas. El usuario asume la total responsabilidad por el uso del software y comprende que el desarrollador no será responsable de posibles daños o problemas derivados del uso o rendimiento del software._
 ## Índice
+- [Prueba rapida](https://alan1996colo.github.io/PortalTuristico/src/view/uiVisitanteHome.html)
 - [Introducción](#introduccion)
 - [Instalación](#instalación)
 - [Uso visitante](#visitante)
