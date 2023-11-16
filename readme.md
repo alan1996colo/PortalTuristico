@@ -41,6 +41,8 @@ Se puede instalar facilmente desde el IDE, o consultar el repo de los desarrolla
 La Secretaría de Turismo de una ciudad busca promover el turismo mediante la creación de un portal virtual. Este portal conectará a residentes y visitantes con eventos y servicios locales, mejorando la interacción y participación. Funcionalidades clave incluyen la divulgación de actividades, descripción de lugares de interés, registro de comerciantes, comparación de precios, y ubicación de comercios.
 
 ## [Instalación](#instalación)
+_Antes de clonar el proyecto, puede probar la pagina directamente desde internet, se encuentra alojada en https://alan1996colo.github.io/PortalTuristico/src/view/uiVisitanteHome.html_
+
 1. Clone o descargue el repositorio $ git clone https://github.com/alan1996colo/PortalTuristico.git
 2. Dirijase a la carpeta PortalTuristico/src/view
 3. Abra el archivo uiVisitanteHome.html con visual Studio code
